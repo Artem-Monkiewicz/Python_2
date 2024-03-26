@@ -12,9 +12,11 @@ if __name__ == "__main__":
         print("Finally")
 print("Koniec")
 
+
 # %%
 class Exception_lich(Exception):
     pass
+
 
 # Włąsne wyjątki przez tworzenie klasy Exception
 
@@ -32,24 +34,31 @@ if __name__ == "__main__":
         print("Finally")
 print("Koniec")
 
-#%% ZADANIE
-
-# Stwórz funkcję taingle która przyjmie arguenty a,b,c.
-# Funkcja ma zwrócić obwód trójkąta a,b,c
-# Funkcja powinna sprawdzić czy a,b,c są liczbami int (MyValueError)
-# Funkcja powinna sprawdzić czy można zbudować trójkąt z boków a,b,c
-# a + b > c, a + c > b, b + c > a, a>0, b>c , c>0
-# Jeżeli nie to wywołaj swój błąd TriangleError
-# Napisz w main użycie tej funkcji z obsługą błędów
-# a, b, c podaje użytkownik.
+# %% ZADANIE trójkąt
+"""
+- Stwórz funkcję taingle która przyjmie arguenty a,b,c.
+- Funkcja ma zwrócić obwód trójkąta a,b,c
+- Funkcja powinna sprawdzić czy a,b,c są liczbami int (MyValueError)
+- Funkcja powinna sprawdzić czy można zbudować trójkąt z boków a,b,c
+- a + b > c, a + c > b, b + c > a, a>0, b>c , c>0
+- Jeżeli nie to wywołaj swój błąd TriangleError
+- Napisz w main użycie tej funkcji z obsługą błędów
+- a, b, c podaje użytkownik.
+"""
 
 
 class TriangleError(Exception):
     pass
+
+
 class MyError(Exception):
     pass
+
+
 class TriangleErrorZero(Exception):
     pass
+
+
 class TriangleErrorMinus(Exception):
     pass
 
@@ -80,5 +89,4 @@ if __name__ == "__main__":
         print(f"Obwód trójkąta: {triagle(a, b, c)}")
     except (ValueError, TriangleErrorMinus, TriangleError, TriangleErrorZero, MyError):
         print("Podałęś złe wartości!")
-
-#%%
+# %% Zadanie kalkulator
