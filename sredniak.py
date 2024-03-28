@@ -1,3 +1,43 @@
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# ХОРОШИЙ ПРИМЕР
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+def ArgumentEqualError(Exception):
+    """Выбрасывается, когда делитель равен 0"""
+    pass
+
+
+def ArgumentNotIntegerError(Exception):
+    """Выбрасывается, когда аргумент не является целым числом"""
+    pass
+
+    # try:
+    #     return a // b
+    # except ZeroDivisionError:
+    #     print("Error!")
+    #     return 0
+    # except TypeError:
+    #     print("Error!")
+    #     return "TypeErrr"
+
+
+def divide(a: int, b: int) -> int:
+    if not isinstance(a, int) or not isinstance(b, int):
+        raise ArgumentNotIntegerError("Аргументы должны быть целыми числами")
+    if b == 0:
+        raise ArgumentEqualError("Делитель не может быть равен 0")
+    return a // b
+
+
+# ZeroDivisionError: integer division or modulo by zero
+if __name__ == "__main__":
+    try:
+        result = divide()
+    except (ArgumentEqualError, ArgumentNotIntegerError) as exc:
+        print(exc)
+    finally:
+        print("Finish")
+
+# %%
 if __name__ == "__main__":
     a = 5
     b = 0
@@ -90,3 +130,62 @@ if __name__ == "__main__":
     except (ValueError, TriangleErrorMinus, TriangleError, TriangleErrorZero, MyError):
         print("Podałęś złe wartości!")
 # %% Zadanie kalkulator
+"""
+Zrób kalkulator:
+- pobierz a i b
+- operacje (+, -, *, /)
+- przekonwertuj a i b na int.
+Jeżeli się nie uda to masz poprosić go jeszcze raz
+- sprawdz czy podał poprawną operację. Wywołaj wyjątek i go obsłuż
+- wykonaj operację
+"""
+
+
+class NotIntError(Exception):
+    """When number isn't Integer"""
+
+    pass
+
+
+class ZnakError(Exception):
+    """When an operator function is specified incorrectly"""
+
+    pass
+
+
+def get_number(name):
+    while True:
+        try:
+            value = int(input(f"Podaj {name}: "))
+            break
+        except NotIntError:
+            print("Wartość jest zła!")
+    return value
+
+
+def get_op(op_list):
+    while True:
+        try:
+            value = input(f"Podaj operacje: ")
+            if value not in op_list:
+                raise ZnakError("Błędny znak operacji! Może być tylko: +, -, *, /")
+            break
+        except ZnakError:
+            print("Wartość jest zła! Błędny znak operacji! Może być tylko: +, -, *, /")
+    return value
+
+
+if __name__ == "__main_-":
+    a = get_number("a")
+    b = get_number("b")
+    op = get_op(["+", "-", "*", "/"])
+
+    if op == "+":
+        print(f"Wynik to: {a + b}")
+    elif op == "-":
+        print(f"Wynik to: {a - b}")
+    elif op == "*":
+        print(f"Wynik to: {a * b}")
+    elif op == "/":
+        print(f"Wynik to: {a / b}")
+# %%
