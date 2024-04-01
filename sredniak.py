@@ -188,4 +188,271 @@ if __name__ == "__main_-":
         print(f"Wynik to: {a * b}")
     elif op == "/":
         print(f"Wynik to: {a / b}")
+# %% classes ABC
+
+from abc import ABC, abstractmethod
+
+
+class Car(ABC):
+    @abstractmethod
+    def get_beep(self):
+        pass
+
+
+class BMW(Car):
+    def __init__(self, name):
+        self.name = name
+
+    def get_beep(self):
+        print("beep")
+
+
+# %%
+
+
+class BMW(Car):
+    def __init__(self, name):
+        self.__name = name
+
+    def get_beep(self):
+        print("beeep")
+
+    def get_name(self):
+        return "+++" + self.__name + "+++"
+
+    def set_name(self, new_name):
+        if new_name == "Beti" or new_name == "Auto":
+            self.__name = new_name
+
+
+# %%
+from abc import ABC, abstractmethod
+
+
+class Car(ABC):
+    @abstractmethod
+    def get_beep(self):
+        pass
+
+
+class BMW(Car):
+    def __init__(self, name):
+        self.name = name
+
+    def get_beep(self):
+        print("beeep")
+
+    def get_name(self):
+        return "+++" + self.name + "+++"
+
+    def set_name(self, new_name):
+        if new_name == "Beti" or new_name == "Auto":
+            self.name = new_name
+
+
+class Audi(Car):
+    def __init__(self, name):
+        self.__name = name
+
+    def get_beep(self):
+        print("aaaaa")
+
+
+class Mercedes(Car):
+    def __init__(self, name):
+        self.__name = name
+
+    def get_beep(self):
+        print("brrrr")
+
+
+if __name__ == "__main__":
+    my_cars = [BMW("car1"), Audi("car2"), Mercedes("car3"), BMW("car4")]
+    for car in my_cars:
+        car.get_beep()
+
+
+# %% Zadanie employee
+# plik employee
+class Employee:
+    def __init__(self, name, age, salary, title):
+        self.name = name
+        self.age = age
+        self.salary = salary
+        self.title = title
+        pass
+
+    def introduce_yourself(self):
+        print(f"Hi, I am {self.name}")
+
+    def salary_increase(self, value):
+        self.salary += value
+
+
+class Boss(Employee):
+    def __init__(self, name, age, salary, title):
+        super(Boss, self).__init__(name, age, salary, title)
+        self.employees = []
+
+    def add_employee(self, employee):
+        self.employees.append(employee)
+
+    def employees_salary_increase(self, value):
+        for employee in self.employees:
+            employee.salary_increase(value)
+
+
+# plik main
+
+from employee import Employee, Boss
+
+
+if __name__ == ("__main__"):
+    emp1 = Employee("emp1", 30, 5000, "eng.")
+    emp2 = Employee("emp2", 23, 8000, "eng.")
+    emp3 = Employee("emp3", 25, 7000, "eng.")
+    boss = Boss("boss1", 50, 10000, "boss")
+    boss.add_employee(emp1)
+    boss.add_employee(emp2)
+    boss.add_employee(emp3)
+
+    for emp in boss.employees:
+        emp.introduce_yourself()
+
+    boss.employees_salary_increase(500)
+    print(emp1.salary)
+
+
+# %% _init_ and new(cls) #1
+class Singleton:
+    _instance = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+    def __init__(self):
+        print("Initializing Singleton instance")
+
+
+# Создаем два объекта класса Singleton
+obj1 = Singleton()
+obj2 = Singleton()
+
+# obj1 и obj2 будут одним и тем же объектом
+print(obj1 is obj2)  # True
+
+
+# %% _init_
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+
+person = Person("Alice", 30)
+print(person.name)  # Alice
+print(person.age)  # 30
+
+# %% __init__ дополнительная инииализация объяекта
+
+
+class Car:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+        self.year = None
+
+    def set_year(self, year):
+        self.year = year
+
+
+car = Car("Toyota", "Corolla")
+car.set_year(2020)
+print(car.year)  # 2020
+
+# %% new(cls)
+
+
+class CustomList(list):
+    def __new__(cls, *args, **kwargs):
+        args = [2 * x for x in args]  # Умножаем все элементы на 2 при создании списка
+        return super().__new__(cls, *args, **kwargs)
+
+
+custom_list = CustomList([1, 2, 3])
+print(custom_list)  # [2, 4, 6]
+
+
+# %% new(cls) #2
+class ImmutableTuple(tuple):
+    def __new__(cls, *args):
+        return super().__new__(cls, sorted(args))  # Возвращаем отсортированный кортеж
+
+
+immutable_tuple = ImmutableTuple(3, 1, 2)
+print(immutable_tuple)  # (1, 2, 3)
+
+# %% @staticmethod
+
+"""
+1. @staticmethod: Этот декоратор используется для определения статического метода в классе. 
+Статические методы не требуют доступа к экземпляру объекта (self) или классу (cls) и могут быть вызваны как методы класса. 
+Они могут быть полезны, когда операция не зависит от конкретного экземпляра класса.
+"""
+
+
+class MathUtils:
+    @staticmethod
+    def add(x, y):
+        return x + y
+
+
+result = MathUtils.add(3, 5)
+print(result)  # 8
+
+# %% @classmethod
+
+"""
+2. @classmethod: Этот декоратор используется для определения метода класса, 
+который принимает первым аргументом ссылку на класс (обычно обозначается как cls). 
+Методы класса могут использоваться для создания новых экземпляров класса или для доступа к атрибутам класса.
+"""
+
+
+class Person:
+    total_count = 0
+
+    def __init__(self, name):
+        self.name = name
+        Person.total_count += 1
+
+    @classmethod
+    def get_total_count(cls):
+        return cls.total_count
+
+
+person1 = Person("Alice")
+person2 = Person("Bob")
+print(Person.get_total_count())  # 2
+
+
+# %%
+class Person:
+    total_count = 0
+
+    def __init__(self, name):
+        self.name = name
+        Person.total_count += 1
+
+    @classmethod
+    def get_total_count(cls):
+        return cls.total_count
+
+
+person1 = Person("Alice")
+person2 = Person("Bob")
+print(Person.get_total_count())  # 2
+
 # %%
