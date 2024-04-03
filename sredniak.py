@@ -455,4 +455,49 @@ person1 = Person("Alice")
 person2 = Person("Bob")
 print(Person.get_total_count())  # 2
 
+# %% .copy
+
+my_dict = {"a": [1, 2, 2, 3], "b": [1, 3, 4, 5]}
+
+my_copy = my_dict.copy()
+
+my_dict["a"].append(4)
+
+my_copy["b"].append(5)
+
+
+print(my_dict)
+print(my_copy)
+
+# %% pickle  -> dump
+from employee import Employee
+import pickle
+
+if __name__ == "__main__":
+    name = input("podaj nazwe:")
+    age = input("podaj wiek:")
+    salary = input("podaj place")
+    title = input("podaj tytul")
+
+    emp1 = Employee(name, age, salary, title)
+    print(emp1)
+
+    with open("emp1.txt", "w") as f:
+        pickle.dumps(emp1, f)
+
+# %%
+
+from employee import Employee
+import pickle
+
+
+def load_emp(file_name: str) -> Employee:
+    with open(file_name, "rb") as f:
+        return pickle.load(f)
+
+
+if __name__ == "__main__":
+    new_emp1 = load_emp("emp1.dat")
+    print(new_emp1)
+
 # %%

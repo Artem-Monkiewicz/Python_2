@@ -1,33 +1,5 @@
 
-from employee import Employee
-import pickle
 
-if __name__ == "__main__":
-    name = input("podaj nazwe:")
-    age = input("podaj wiek:")
-    salary = input("podaj place")
-    title = input("podaj tytul")
-
-    emp1 = Employee(name, age, salary, title)
-    print(emp1)
-
-    with open("emp1.txt", "w") as f:
-        pickle.dumps(emp1, f)
-
-# %%
-
-from employee import Employee
-import pickle
-
-
-def load_emp(file_name: str) -> Employee:
-    with open(file_name, "rb") as f:
-        return pickle.load(f)
-
-
-if __name__ == "__main__":
-    new_emp1 = load_emp("emp1.dat")
-    print(new_emp1)
 
 # %%
 
@@ -1565,5 +1537,28 @@ class Apple(Point):
                 if self.x == point.x and self.y == point.y:
                     is_wrong = False
 
+#%%
+                    
+def sum(*arg, **kwargs):
+    print(arg, kwargs)
 
+
+sum(2, 3, 4)
+sum(2, 3, a=6, b=7, c=8)
+
+
+# %%
+def sum(*arg, **kwargs):
+    result = 0
+    for i in arg:
+        result += i
+    for i in kwargs.values():
+        result += i
+    return result
+
+
+print(sum(2, 3, 4, 4, 5, 4, 3, 2, 3, 4))
+sum(2, 3, a=6, b=7, c=8)
+
+#%%
 
