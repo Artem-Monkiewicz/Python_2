@@ -1,4 +1,32 @@
+#%%
 from mysql.connector import connect, Error
+
+try:
+    with connect(host="localhost", user="root", password="!IloveOliwer1911") as conn:
+        print(conn)
+
+except Error as e:
+    print(e)
+
+#%% создание базы test_test
+
+from mysql.connector import connect, Error
+
+try:
+    with connect(host="localhost", user="root", password="!IloveOliwer1911") as conn:
+        sql_statement = 'CREATE DATABASE test_test'
+        with conn.cursor() as cursor:
+            cursor.execute(sql_statement)
+            conn.commit()
+
+except Error as e:
+    print(e)
+
+#%%
+
+from mysql.connector import connect, Error
+
+# PIP: pip install my-sql-connector-python
 
 try:
     with connect(
@@ -181,5 +209,21 @@ create_engine('mysql+mysqlconnector://root:aJSSBVkmtQQCdetovrmR@localhost:3306
 Base = declarative_base()
 Session = sessionmaker( bind=db)
 session = Session()
+
+# DZ 1
+result = session.query(Movie).filter_by(category='Drama').all()
+print(result)
+# DZ 2
+result = session.query(Movie).filter(and_(Movie.category == 'Crime', Movie.year > 1994)).all()
+# DZ 3
+result = session.query(Movie.title, Movie.category, Movie.rating)\
+    .filter(and_(Movie.year >= 2000, Movie.year <= 2010, Movie.rating > 7))\
+    .order_by(Movie.rating.desc()).all()
+
+# 06,04,24
+result = session.query(Person).filter(Person.first_name.like('Pa%')).all()
+result = session.query(Person).filter(Person.first_name.in_(['Witold', 'Patryk'])).all()
+result = session.query(Person).filter(Person.first_name.in_(['Witold', 'Patryk'])).count()
+
 
 
