@@ -8,7 +8,7 @@ Created on Fri Oct  6 11:21:04 2023
 
 # %%
 
-print("training from scratch, day 30 (06.04.24)")
+print("training from scratch, day 31 (07.04.24)")
 print(2 + 2)
 print(3 * 3)
 
@@ -123,6 +123,8 @@ print(human_2)
 # usuwanie elementu ze slownika v2
 x = human_2.pop("weight")
 print(human_2)
+
+
 # %%
 # %%
 # def nazwa_funkcji_1():
@@ -316,7 +318,7 @@ def f_9(number: int):
 
 print(f_9(6))
 
-#%%
+# %%
 
 Krotka_1 = ()
 Krotka_2 = 1, 2, 3, 4
@@ -329,7 +331,7 @@ Krotka_2 = 10, 2, 6, 5
 
 print(Krotka_2)
 
-#%%
+# %%
 import time
 
 st = time.time()
@@ -349,7 +351,8 @@ comp_time = et - st
 print(f"loop time = {loop_time}")
 print(f"comprehension time = {comp_time}")
 
-#%%
+# %%
+
 
 # Class representing an ugly woman (adaptee)
 class UglyWoman:
@@ -392,7 +395,7 @@ makeup_adapter = MakeupAdapter(ugly_woman, beautiful_women)
 # Call the check_appearance function using the adapter
 check_appearance(makeup_adapter)
 
-#%%
+# %%
 
 # F INPUT
 print("Witam serdecznie.")
@@ -413,7 +416,7 @@ else:
     print(f"x:{x} jest mniejsze od y:{y}")
 
 
-#Wódka
+# Wódka
 x = 3
 y = 3
 procenty = int(input("Podaj procenty: "))
@@ -426,15 +429,15 @@ elif procenty >= 70:
 else:
     print("Oranżada")
 
-#Pętla 
-#nieskończone iter. - WHILE
-#zdefiniowan. iteracj - określ. liczba iteracji
+# Pętla
+# nieskończone iter. - WHILE
+# zdefiniowan. iteracj - określ. liczba iteracji
 
 
-#WHILE
+# WHILE
 
 
-#%%
+# %%
 
 # Zbiór
 
@@ -473,4 +476,4 @@ print(animals.issuperset(animals2))
 print("Union - polączenie zbiórów")
 print(animals.union(animals2))
 
-#%%
+# %%

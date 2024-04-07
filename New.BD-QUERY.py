@@ -132,7 +132,6 @@ try:
         with conn.cursor() as cursor:
             cursor.execute(expenses)
             print(cursor.fetchone())
-            print(cursor.fetchone())
 except Error as e:
     print(e)
 
@@ -224,6 +223,3 @@ result = session.query(Movie.title, Movie.category, Movie.rating)\
 result = session.query(Person).filter(Person.first_name.like('Pa%')).all()
 result = session.query(Person).filter(Person.first_name.in_(['Witold', 'Patryk'])).all()
 result = session.query(Person).filter(Person.first_name.in_(['Witold', 'Patryk'])).count()
-
-
-
