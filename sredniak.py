@@ -500,4 +500,95 @@ if __name__ == "__main__":
     new_emp1 = load_emp("emp1.dat")
     print(new_emp1)
 
+# %% class
+
+
+class Person:
+    pass
+
+
+p1 = Person()
+p1.name = "Elon"
+p1.surname = "Smith"
+p1.place_of_birth = "USA"
+
+p2 = Person()
+p2.name = "Sergei"
+p2.surname = "Korolev"
+p2.place_of_birth = "Belarus"
+
+print(p1.name)
+
+print(f"Name: {p1.name}, Nazwisko: {p1.surname}, Miasto: {p1.place_of_birth}.")
+
+print(f"Name: {p2.name}, Nazwisko: {p2.surname}, Miasto: {p2.place_of_birth}.")
+
+
+# %% self
+class Person:
+    def print_info(self, n):
+        for i in range(n):
+            print(
+                f"Name: {self.name}, Surname: {self.surname}, Place of Birth: {self.place_of_birth}."
+            )
+
+    def get_age(self):
+        actually_year = int(input("Please enter your actually year: "))
+        age = actually_year - self.year_of_birth
+        print(f"Your age is {age} years old.")
+
+
+p1 = Person()
+p1.name = "Elon"
+p1.surname = "Smith"
+p1.place_of_birth = "USA"
+p1.year_of_birth = 1980
+
+p2 = Person()
+p2.name = "Sergei"
+p2.surname = "Korolev"
+p2.place_of_birth = "Belarus"
+p2.year_of_birth = 1995
+
+# 1
+# p1.print_info(3)
+# p2.print_info(5)
+
+# 2
+Person.print_info(p1, 3)
+Person.print_info(p2, 5)
+
+# get_age
+p1.get_age()
+p2.get_age()
+
+
+# %% __init__
+class Person:
+    def __init__(self, name, surname, place_of_birth, year_of_birth):
+        self.name = name
+        self.surname = surname
+        self.place_of_birth = place_of_birth
+        self.year_of_birth = year_of_birth
+
+    def print_info(self, n):
+        for i in range(n):
+            print(
+                f"Name: {self.name}, Surname: {self.surname}, Place of Birth: {self.place_of_birth}."
+            )
+
+    def get_age(self):
+        actually_year = int(input("Please enter your actually year: "))
+        age = actually_year - self.year_of_birth
+        print(f"Your age is {age} years old.")
+
+
+p1 = Person("Elon", "Musk", "USA", 1994)
+p2 = Person("Sergei", "Korolev", "Belarus", 1995)
+p3 = Person("Albert", "Einstein", "Germany", 1979)
+
+p1.print_info(1)
+p2.print_info(1)
+p3.print_info(1)
+
 # %%
