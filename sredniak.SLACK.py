@@ -1,122 +1,3 @@
-
-# %%
-
-
-def sum(*arg, **kwargs):
-    result = 0
-    for i in arg:
-        result += i
-
-    for i in kwargs.values():
-        result += i
-    return result
-
-
-print(sum(2, 3, 4, 5, 9, 9, a=40))
-
-# %%
-
-from dataclasses import dataclass
-
-
-@dataclass
-class Employee:
-    name: str
-    age: int
-    salary: int
-    title: str
-
-    def introduce_yourself(self):
-        print(f"Hi! I am {self.name}")
-
-    def salary_increase(self, value):
-        self.salary += value
-
-    @classmethod
-    def say_hello(cls):
-        print("Hi")
-
-    @staticmethod
-    def say_hello2():
-        print("Hi2!")
-
-    def __add__(self, other):
-        if other == 0:
-            raise ZeroDivisionError
-        return Employee(self.name + "&" + other.name, 10, 1000, "eng.")
-
-
-class Boss(Employee):
-    def __init__(self, name, age, salary, title):
-        super(Boss, self).__init__(name, age, salary, title)
-        self.employees = []
-
-    def add_employee(self, employee):
-        self.employees.append(employee)
-
-    def employees_salary_increase(self, value):
-        for employee in self.employees:
-            employee.salary_increase(value)
-
-
-# %%
-
-
-def print_menu(menu: dict):
-    for option in menu.values():
-        print(option)
-    while True:
-        result = input("Podaj opcje:")
-        for key in menu.keys():
-            if result == str(key):
-                return key
-        else:
-            print("Podales zla wartosc!")
-
-
-if __name__ == "__main__":
-    menu = {1: "1. Zapis do pliku", 2: "2. Odczyt z pliku", 3: "3. Wyjdz"}
-
-    menu_result = print_menu(menu)
-    print(f"Wybrałeś opcję {menu_result}")
-
-# %%
-
-
-def print_menu(menu: dict):
-    print("===========================")
-    for option in menu.values():
-        print(option)
-    while True:
-        result = input("Podaj opcje:")
-        for key in menu.keys():
-            if result == str(key):
-                print(f"Wybrałeś opcję {key}")
-                print("===========================")
-                return key
-        else:
-            print("Podales zla wartosc!")
-
-
-def save_to_file():
-    file_name = input("Podaj nazwe pliku:")
-    print("Możesz śmiało pisać do pliku. Jeżeli chcesz skończyć to wpisz:q!")
-    with open(file_name, "w") as f:
-        while True:
-            line = input()
-            if line == "q!":
-                break
-            else:
-                f.write(line + "\n")
-
-
-if __name__ == "__main__":
-    menu = {1: "1. Zapis do pliku", 2: "2. Odczyt z pliku", 3: "3. Wyjdz"}
-
-    menu_result = print_menu(menu)
-    if menu_result == 1:
-        save_to_file()
-
 # %%
 
 import csv
@@ -1558,5 +1439,82 @@ def sum(*arg, **kwargs):
 print(sum(2, 3, 4, 4, 5, 4, 3, 2, 3, 4))
 sum(2, 3, a=6, b=7, c=8)
 
+print()
+
+# lambda - "anonim funkcja"
+import functools
+
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+#lamb
+map_list = list(map(lambda x: x+2, my_list))
+reduced_list = functools.reduce(lambda x, y: x+y, my_list)
+filtered_list = list(filter(lambda x: x % 2 == 0, my_list))
+
+print('map', map_list)
+print('reduced', reduced_list)
+print('filtered', filtered_list)
+
+# min, max, sort
+
+new_list2 = [(1,2,3), (4,5,6), (7,8,9)]
+
+print('MIN')
+my_min = min(new_list2, key=lambda x: x[0] + x[1])
+print(my_min)
+print('MAX')
+my_max = max(new_list2, key=lambda x: x[0] * x[1])
+print(my_max)
+print('SORTED')
+my_sorted = sorted(new_list2, key=lambda x: x[0] + x[1])
+print(my_sorted)
 #%%
 
+# CZWICZENIE 1 map at Upper
+list_family = ['Oliwer', 'Taja', 'Artem', "Maja", "Lucifer"]
+map_family = list(map(lambda x: x.upper(), list_family))
+print('UPPER_FAM: ', map_family)
+
+# CZWICZENNIE 2 sort by last litr
+sorted_family = sorted(list_family, key=lambda x: x[-1])
+print('SORTED_FAM: ', sorted_family)
+
+#%%
+def last_char(x):
+    return x[-1]
+#1
+name = 'Zenek'
+last_character = last_char(name)
+print('Last character: ', last_character)
+
+#2
+last_character_sorted = sorted(name, key=last_char)
+last_character_sorted2 = sorted(name, key=lambda x: x[-1])
+print('Last character sorted: ', last_character_sorted)
+print('Last character sorted 2(lambba): ', last_character_sorted2)
+
+#3
+lamb_last_character_sorted = lambda x: x[-1]
+last_character_sorted3 = sorted(name, key=lamb_last_character_sorted)
+print('Last character sorted 3(lambba): ', last_character_sorted3)
+
+#%% Iterator
+
+class MyIterator:
+    def __init__(self, max, start):
+        self.max = max
+        self.number = start
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        self.number += 1
+        if self.number < self.max:
+            return self.number
+        else:
+            raise StopIteration
+
+my_iter = MyIterator(4, 10)
+for elem in my_iter:
+    print(elem)

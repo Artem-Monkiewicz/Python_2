@@ -591,4 +591,265 @@ p1.print_info(1)
 p2.print_info(1)
 p3.print_info(1)
 
+
+# %% Атрибут класса
+class Circle:
+    PI = 3.14  # Атрибут класса
+
+    def __init__(self, radius):
+        self.radius = radius
+
+    def get_perimeter(self):
+        return self.radius * 2 * Circle.PI
+
+    def get_area(self):
+        return Circle.PI * self.radius**2
+
+
+c1 = Circle(3)
+print(c1.get_perimeter())
+print(c1.get_area())
+
+c2 = Circle(7)
+print(c2.get_perimeter())
+print(c2.get_area())
+
+
 # %%
+class Person:
+    people_count = 0
+
+    def __init__(self, name, surname, place_of_birth, year_of_birth):
+        self.name = name
+        self.surname = surname
+        self.place_of_birth = place_of_birth
+        self.year_of_birth = year_of_birth
+
+        Person.people_count += 1
+
+    def print_info(self, n):
+        for i in range(n):
+            print(
+                f"Name: {self.name}, Surname: {self.surname}, Place of Birth: {self.place_of_birth}."
+            )
+
+    def get_age(self):
+        actually_year = int(input("Please enter your actually year: "))
+        age = actually_year - self.year_of_birth
+        print(f"Your age is {age} years old.")
+
+
+p1 = Person("Elon", "Musk", "USA", 1994)
+p2 = Person("Sergei", "Korolev", "Belarus", 1995)
+p3 = Person("Albert", "Einstein", "Germany", 1979)
+
+p1.print_info(1)
+p2.print_info(1)
+p3.print_info(1)
+
+print(Person.people_count)
+
+# %% operations on files
+import csv
+import json
+
+
+def print_menu(menu: dict):
+    print("==================================")
+    for option in menu.values():
+        print(option)
+    while True:
+        result = input("Input option: ")
+        for key in menu.keys():
+            if result == str(key):
+                print(f"Chosed option {key}")
+                print("==================================")
+                return key
+        else:
+            print("Invalid option. Please try again.")
+
+
+def save_to_file():
+    file_name = input("Enter file name: ")
+    print(
+        "You can write at this file. If you dont want to overwrite it, just write q!."
+    )
+    with open(file_name, "w") as f:
+        while True:
+            line = input()
+            if line == "q!":
+                break
+            else:
+                f.write(line + "\n")
+
+
+def read_from_file():
+    file_name = input("Enter file name: ")
+    with open(file_name, "r") as f:
+        for line in f:
+            print(line, end="")
+
+
+def save_to_file_csv():
+    file_name = input("Enter file name: ")
+    with open(file_name, "w", encoding="utf-8") as f:
+        f.write("1; Michal; 45\n")
+        f.write("1; Ala; 20\n")
+
+
+if __name__ == "__main__":
+    menu = {
+        1: "1. Save file",
+        2: "2. Load file",
+        3: "3. Save file as .CSV",
+        5: "5. Exit file",
+    }
+
+    with open("menu.txt", "w") as f:
+        json.dump(menu, f, indent=4)
+    # with open('menu.txt', 'r') as f:
+    #     json.load(f)
+
+    while True:
+        menu_result = print_menu(menu)
+        if menu_result == "1":
+            save_to_file()
+        elif menu_result == "2":
+            read_from_file()
+        elif menu_result == "3":
+            save_to_file_csv()
+        elif menu_result == "5":
+            print("End of program")
+            break
+
+# funkc wewnętrzn
+
+def select_gender(gender):
+    def gender_male(name):
+        print(f'Hello, I am {name}! I am a male person.')
+    def gender_female(name):
+        print(f'Hi, and I am {name}! I am a female person.')
+
+    if gender == 'male':
+        return gender_male
+    elif gender == 'female':
+        return gender_female
+# program
+if __name__ == '__main__':
+    my_func = select_gender('male')
+    my_func('Michał')
+
+# %% Decoratory
+def my_dec(func):
+    def wrapper(*args, **kwargs):
+        return "+++++" + func(*args, **kwargs) + '+++++'
+    return wrapper
+
+def my_name():
+    return "Jestem Artem"
+
+def say_hello(name):
+    return f"Hello {name}"
+
+#bez
+print(my_name())
+#z
+print(my_dec(my_name)())
+#arg
+print(my_dec(say_hello)("Ola"))
+
+#%% Stały decorator
+
+def my_dec(func):
+    def wrapper(*args, **kwargs):
+        return "+++++" + func(*args, **kwargs) + '+++++'
+    return wrapper
+@my_dec
+def my_name():
+    return "Jestem Artem"
+
+def say_hello(name):
+    return f"Hello {name}"
+
+#@ stały
+print(my_name())
+#z
+# print(my_dec(my_name)())
+# #arg
+# print(my_dec(say_hello)("Ola"))
+
+#%% Dekoratoe z argumentami
+
+from datetime import datetime
+
+def run_only_between(from_=10, to_=11):
+# Udekoruje tylko w określonych godzinach
+    def dec(func):
+        def wrapper():
+            if from_<= datetime.now().hour < to_:
+                func()
+        return wrapper
+    return dec
+
+@run_only_between(10, 11)
+def say_something():
+    print("Hello World")
+
+print(say_something())
+
+#%% Manager kontekstu
+
+class SecretData:
+    def __init__(self, data):
+        self.data = data
+
+    def __enter__(self):
+        print('ENTER')
+        return list(reversed(self.data))
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print('EXIT')
+        print(f' TYPE: {exc_type}, VAL: {exc_val}, TB: {exc_tb}')
+        for i in range(len(self.data)):
+            self.data[i] = 0
+        return True
+
+with SecretData([34,12,22,24]) as data:
+        print(data)
+        a = 3/0
+print('PO SECRETDATA')
+
+# Menager kontekstu #2
+import contextlib
+
+
+@contextlib.contextmanager
+def my_func():
+    print('part1')
+    print('part2')
+    print('part3')
+    yield 1
+
+
+with my_func() as result:
+    print(result)
+
+# Menager kontekstu #3
+from contextlib import contextmanager
+
+
+@contextmanager
+def my_func(value):
+    print(f'part{value}')
+    yield value
+
+
+with my_func(1) as result:
+    print(result)
+with my_func(2) as result:
+    print(result)
+with my_func(3) as result:
+    print(result)
+
+
+
