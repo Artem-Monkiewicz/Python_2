@@ -724,100 +724,122 @@ if __name__ == "__main__":
 
 # funkc wewnętrzn
 
+
 def select_gender(gender):
     def gender_male(name):
-        print(f'Hello, I am {name}! I am a male person.')
-    def gender_female(name):
-        print(f'Hi, and I am {name}! I am a female person.')
+        print(f"Hello, I am {name}! I am a male person.")
 
-    if gender == 'male':
+    def gender_female(name):
+        print(f"Hi, and I am {name}! I am a female person.")
+
+    if gender == "male":
         return gender_male
-    elif gender == 'female':
+    elif gender == "female":
         return gender_female
+
+
 # program
-if __name__ == '__main__':
-    my_func = select_gender('male')
-    my_func('Michał')
+if __name__ == "__main__":
+    my_func = select_gender("male")
+    my_func("Michał")
+
 
 # %% Decoratory
 def my_dec(func):
     def wrapper(*args, **kwargs):
-        return "+++++" + func(*args, **kwargs) + '+++++'
+        return "+++++" + func(*args, **kwargs) + "+++++"
+
     return wrapper
+
 
 def my_name():
     return "Jestem Artem"
 
+
 def say_hello(name):
     return f"Hello {name}"
 
-#bez
+
+# bez
 print(my_name())
-#z
+# z
 print(my_dec(my_name)())
-#arg
+# arg
 print(my_dec(say_hello)("Ola"))
 
-#%% Stały decorator
+# %% Stały decorator
+
 
 def my_dec(func):
     def wrapper(*args, **kwargs):
-        return "+++++" + func(*args, **kwargs) + '+++++'
+        return "+++++" + func(*args, **kwargs) + "+++++"
+
     return wrapper
+
+
 @my_dec
 def my_name():
     return "Jestem Artem"
 
+
 def say_hello(name):
     return f"Hello {name}"
 
-#@ stały
+
+# @ stały
 print(my_name())
-#z
+# z
 # print(my_dec(my_name)())
 # #arg
 # print(my_dec(say_hello)("Ola"))
 
-#%% Dekoratoe z argumentami
+# %% Dekoratoe z argumentami
 
 from datetime import datetime
 
+
 def run_only_between(from_=10, to_=11):
-# Udekoruje tylko w określonych godzinach
+    # Udekoruje tylko w określonych godzinach
     def dec(func):
         def wrapper():
-            if from_<= datetime.now().hour < to_:
+            if from_ <= datetime.now().hour < to_:
                 func()
+
         return wrapper
+
     return dec
+
 
 @run_only_between(10, 11)
 def say_something():
     print("Hello World")
 
+
 print(say_something())
 
-#%% Manager kontekstu
+# %% Manager kontekstu
+
 
 class SecretData:
     def __init__(self, data):
         self.data = data
 
     def __enter__(self):
-        print('ENTER')
+        print("ENTER")
         return list(reversed(self.data))
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        print('EXIT')
-        print(f' TYPE: {exc_type}, VAL: {exc_val}, TB: {exc_tb}')
+        print("EXIT")
+        print(f" TYPE: {exc_type}, VAL: {exc_val}, TB: {exc_tb}")
         for i in range(len(self.data)):
             self.data[i] = 0
         return True
 
-with SecretData([34,12,22,24]) as data:
-        print(data)
-        a = 3/0
-print('PO SECRETDATA')
+
+with SecretData([34, 12, 22, 24]) as data:
+    print(data)
+    a = 3 / 0
+print("PO SECRETDATA")
 
 # Menager kontekstu #2
 import contextlib
@@ -825,9 +847,9 @@ import contextlib
 
 @contextlib.contextmanager
 def my_func():
-    print('part1')
-    print('part2')
-    print('part3')
+    print("part1")
+    print("part2")
+    print("part3")
     yield 1
 
 
@@ -840,7 +862,7 @@ from contextlib import contextmanager
 
 @contextmanager
 def my_func(value):
-    print(f'part{value}')
+    print(f"part{value}")
     yield value
 
 
@@ -850,6 +872,3 @@ with my_func(2) as result:
     print(result)
 with my_func(3) as result:
     print(result)
-
-
-
