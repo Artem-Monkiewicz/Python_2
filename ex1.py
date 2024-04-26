@@ -193,3 +193,259 @@ message = (
 
 print(message)
 # %%
+# a= 2
+# b= 3
+# c= 4
+# sum = a + b + c
+# arithmetic_average= sum//3
+# print(arithmetic_average)
+# print(type(result))
+# result = 2==2 or 1!=1 #True #False =>
+# result = bool()
+# print(result)
+
+# imie = ("Zorro")
+# liczba = 40
+# licba2 = 42.2
+# napis = "abc"
+# log = True
+# wiek_osoby = liczba
+# print(wiek_osoby)
+# liczba3 = int(licba2)
+# print(liczba3)
+# liczba4 = float(liczba)
+# print(liczba4)
+# print(f'Hello,{imie}!')
+
+# Napisz program, który wyświetli na ekranie informację o tym, czy wartość zmiennej jest podzielna przez 7
+
+# wartosc = int(input('podaj wartosc: '))
+# if wartosc % 7 == 0:
+#     print('Wartosc dzieli się na 7')
+# else:
+#     print("Wartość nie dzieli na 7")
+
+# Napisz program, który wyświetli na ekranie napis "Wartość zmiennej jest nieparzysta", jeżeli wartość zmiennej jest nieparzysta, w przeciwnym razie wyświetli na ekranie napis "Podana wartość jest parzysta"
+
+# wartosc = int(input("Podaj wartosc: "))
+# if wartosc % 2 == 0:
+#     print('Wartosc parzysta')
+# else:
+#     print('Wartosc nieparzysta')
+
+# Napisz program, który wyświetli na ekranie informację o tym, czy wartość zmiennej jest podzielna przez 7, przez 5, czy przez 3. Jeżeli wartość zmiennej nie jest podzielna przez żadną z liczb wyświetli stosowny komunikat.
+# wartosc = int(input("Wpisz wartosc: "))
+# if wartosc %5 == 0:
+#     print('wartosc dzieli sie na 5')
+# elif wartosc %3 == 0:
+#     print('wartosc dzieli sie na 3')
+# elif wartosc %7 == 0:
+#     print('wartosc dzieli sie na 7')
+# else:
+#     print('wartosc dziwna')
+
+# Napisz program, który dla podanej zmiennej wyświetli:
+# różnicę pomiędzy wartością tej zmiennej, a liczbą 17, jeżeli różnica ta wynosi mniej niż 17,
+# kwadrat tej różnicy, w przeciwnym wypadku.
+
+# wartosc = int(input('Podaj wartosc: '))
+# wartosc_17 = wartosc - 17
+# if wartosc_17 > 17:
+#     print(f'Twoja wartosc >17, to: {wartosc_17}')
+# else:
+#     print(f'Twoja wartosc <17, to: {wartosc}')
+
+# Napisz program, który zwróci sumę trzech podanych liczb. Jeżeli wszystkie trzy liczby są równe zwróci potrójną wartość ich sumy.
+# a = int(input('Podaj a: '))
+# b = int(input('Podaj b: '))
+# c = int(input('Podaj c: '))
+#
+# x = a + b + c
+# x3 = sum((a, b, c))**3
+# if a ==b and a == c:
+#     print(f'Podane wartosci rowne sobie! suma x3: {x3}')
+# else:
+#     print(f'Podane wartosci nie rowne sobie! suma: {x}')
+
+# %% pętle
+# x = 0
+# while x < 5:
+#     x = x + 1
+# print(x)
+
+# Napisz program, który wyświetli wszystkie liczby naturalne z przedziału 0, 50.
+# x = 0
+# while x <= 50:
+#     print(x)
+#     x += 1
+
+# Napisz program, który wyświetli wszystkie liczby parzyste z przedziału 0, 100.
+# x = 0
+# while x<=100:
+#     print(x)
+#     x+=2
+
+# Napisz program, który wyświetli na ekranie kwadraty wszystkich liczb całkowitych z przedziału 0, 10.
+# x = 0
+# while x<=10:
+#     print(x**2)
+#     x+=1
+
+# Korzystając z pętli, wypisz liczby od -20 do 20. Następnie wypisz:
+# 6 pierwszych liczb
+# 6 ostatnich liczb
+# wszystkie parzyste liczby
+# wszystkie liczby oprócz cyfry 5
+# wszystkie liczby do cyfry 7 włącznie
+# wszystkie liczby podzielne przez 3
+# sumę wszystkich liczb
+# sumę liczb większych lub równych 4
+# wszystkie liczby oraz ich potęgi
+# wszystkie liczby oraz ich wartości modulo 10
+
+# 1
+# x = -20
+# while x<=20:
+#     print(x)
+#     x+=1
+# #2
+# count = 0
+# while count<6:
+#     print(x)
+#     x+=1
+#     count+=1
+# 3
+# while count<6:
+#     print(x*-1)
+#     x-=1
+#     count+=1
+# 4
+# while x<=20:
+#     if x%2==0:
+#         print(x)
+#     x+=1
+# 5
+# while x<=20:
+#     if x !=5:
+#         print(x)
+#     x+=1
+# 6
+# while x <= 7:
+#     print(x)
+#     x +=1
+# 7
+# while x <= 20:
+#     print(x // 3)
+#     x += 1
+# 8
+# x = -20
+# count = 0
+# while x <= 20:
+#     print(x)
+#     count += x
+#     x += 1
+#
+# print(f'sum = {count}.')
+# 9
+# while x <= 20:
+#     if x >= 4:
+#         count += x
+#     x += 1
+#
+# print(f'sum = {count}.')
+# 10
+# while x <= 20:
+#     print(x, x**2, x**3, x**4, x**5, x**6)
+#     x += 1
+
+# 11
+# while x <= 20:
+#     print(x, x%10)
+#     x += 1
+
+# Napisz program, który wyświetli liczby będące wielokrotnością 5 i podzielne przez 7 z przedziału 1500-2700
+# num = 1500
+# end_num = 2700
+#
+# while num <= end_num:
+#     if num % 5 == 0 and num % 7 == 0:
+#         print(num)
+#     num += 1
+
+# Napisz program, który wypisze na ekranie liczby od 0 do 6 z pominięciem 3 i 6.
+# x = 0
+# x_end = 6
+# while x < x_end:
+#     if x != 3 and x != 6:
+#         print(x)
+#     x+=1
+
+# %%
+#%%
+5. **Функции:**
+- Объявление функции с помощью def.
+    - Функции могут принимать аргументы и возвращать значения.
+
+7. **Методы строк:**
+- upper(), lower(), split(), join(), replace() и другие.
+
+8. **Обработка исключений:**
+try:
+# код, который может вызвать исключение
+except ТипИсключения as e:
+# обработка исключения
+
+
+9. **Модули:**
+- Импортирование модулей с помощью import.
+- Установка сторонних модулей через pip.
+
+### Полезные ссылки:
+- Официальная документация Python: https://docs.python.org/3/
+- Курс "Learn Python" на Codecademy: https://www.codecademy.com/learn/learn-python
+
+#%%
+Podsumowanie części pierwszej
+W tym miejscu kończymy omawianie podstawowych elementów składniowych języka Python. Informacje przedstawione w pierwszej części wystarczą do napisania dowolnie złożnego programu. Każdy istniejący obecnie program komputerowy, gra czy portal internetowy, mogą zostać napisane za pomocą samych typów, operatorów, instrukcji przypisania, warunków i pętli.
+
+Napisz program, który dla zadanej listy wyświetli kolejno wszystkie jej elementy razem z ich typami. Dla listy
+a_list = [4, True, None]
+program powinien wyświetlić wynik:
+
+4 <class 'int'>
+True <class 'bool'>
+None <class 'NoneType'>
+Dana jest tablica 10 elementowa: a_list = [1, 3, 5, 2, 5, 6, 7, 4, 9, 7]. Napisz program, który wypisze:
+
+wszytkie cyfry,
+
+6 pierwszych cyfr,
+
+6 ostatnich cyfr,
+
+wszystkie parzyste cyfry,
+
+wszystkie cyfry na nieparzystych indeksach,
+
+wszystkie cyfry oprócz cyfry 5,
+
+wszystkie cyfry do cyfry 7 włącznie,
+
+wszystkie cyfry podzielne przez 3,
+
+sumę wszystkich cyfr,
+
+sumę cyfr większych lub równych 4,
+
+najmniejszą i największą cyfrę.
+
+Napisz program, który dla zadanej liczby słów, np: a_list = [kot, elementarz, okno, komputer] wyświetli kolejne elementy listy razem z informacją o długości tych elementów.
+
+Napisz program, który dla zadanej listy słów, np:
+
+list_of_words = ["spam", "stół", "spam", "brązowy", "powietrze", "malware", "spam", "koniec"]
+wyświetli tylko te elementy listy, które nie mają wartości "spam". Ponadto jeżeli element listy ma wartość "malware" program powinien natychmiast przerwać działanie. Użyj instrukcji break. Informacji o działaniu instrukcji break poszukaj w internecie.
+
+
+#Napisz program, który dla zadanej listy wyświetli kolejno wszystkie jej elementy razem z ich typami.
+a_list = [4, True, None]
