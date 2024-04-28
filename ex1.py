@@ -381,71 +381,146 @@ print(message)
 #     x+=1
 
 # %%
-#%%
-5. **Функции:**
-- Объявление функции с помощью def.
-    - Функции могут принимать аргументы и возвращать значения.
+# Podsumowanie części pierwszej
+# W tym miejscu kończymy omawianie podstawowych elementów składniowych języka Python. Informacje przedstawione w pierwszej części wystarczą do napisania dowolnie złożnego programu. Każdy istniejący obecnie program komputerowy, gra czy portal internetowy, mogą zostać napisane za pomocą samych typów, operatorów, instrukcji przypisania, warunków i pętli.
 
-7. **Методы строк:**
-- upper(), lower(), split(), join(), replace() и другие.
+# Napisz program, który dla zadanej listy wyświetli kolejno wszystkie jej elementy razem z ich typami. Dla listy
+# a_list = [4, True, None]
+# program powinien wyświetlić wynik:
 
-8. **Обработка исключений:**
-try:
-# код, который может вызвать исключение
-except ТипИсключения as e:
-# обработка исключения
+# 4 <class 'int'>
+# True <class 'bool'>
+# None <class 'NoneType'>
+# Dana jest tablica 10 elementowa: a_list = [1, 3, 5, 2, 5, 6, 7, 4, 9, 7]. Napisz program, który wypisze:
 
+# wszytkie cyfry,
 
-9. **Модули:**
-- Импортирование модулей с помощью import.
-- Установка сторонних модулей через pip.
+# 6 pierwszych cyfr,
 
-### Полезные ссылки:
-- Официальная документация Python: https://docs.python.org/3/
-- Курс "Learn Python" на Codecademy: https://www.codecademy.com/learn/learn-python
+# 6 ostatnich cyfr,
 
-#%%
-Podsumowanie części pierwszej
-W tym miejscu kończymy omawianie podstawowych elementów składniowych języka Python. Informacje przedstawione w pierwszej części wystarczą do napisania dowolnie złożnego programu. Każdy istniejący obecnie program komputerowy, gra czy portal internetowy, mogą zostać napisane za pomocą samych typów, operatorów, instrukcji przypisania, warunków i pętli.
+# wszystkie parzyste cyfry,
 
-Napisz program, który dla zadanej listy wyświetli kolejno wszystkie jej elementy razem z ich typami. Dla listy
-a_list = [4, True, None]
-program powinien wyświetlić wynik:
+# wszystkie cyfry na nieparzystych indeksach,
 
-4 <class 'int'>
-True <class 'bool'>
-None <class 'NoneType'>
-Dana jest tablica 10 elementowa: a_list = [1, 3, 5, 2, 5, 6, 7, 4, 9, 7]. Napisz program, który wypisze:
+# wszystkie cyfry oprócz cyfry 5,
 
-wszytkie cyfry,
+# wszystkie cyfry do cyfry 7 włącznie,
 
-6 pierwszych cyfr,
+# wszystkie cyfry podzielne przez 3,
 
-6 ostatnich cyfr,
+# sumę wszystkich cyfr,
 
-wszystkie parzyste cyfry,
+# sumę cyfr większych lub równych 4,
 
-wszystkie cyfry na nieparzystych indeksach,
+# najmniejszą i największą cyfrę.
 
-wszystkie cyfry oprócz cyfry 5,
+# Napisz program, który dla zadanej liczby słów, np: a_list = [kot, elementarz, okno, komputer] wyświetli kolejne elementy listy razem z informacją o długości tych elementów.
 
-wszystkie cyfry do cyfry 7 włącznie,
+# Napisz program, który dla zadanej listy słów, np:
 
-wszystkie cyfry podzielne przez 3,
-
-sumę wszystkich cyfr,
-
-sumę cyfr większych lub równych 4,
-
-najmniejszą i największą cyfrę.
-
-Napisz program, który dla zadanej liczby słów, np: a_list = [kot, elementarz, okno, komputer] wyświetli kolejne elementy listy razem z informacją o długości tych elementów.
-
-Napisz program, który dla zadanej listy słów, np:
-
-list_of_words = ["spam", "stół", "spam", "brązowy", "powietrze", "malware", "spam", "koniec"]
-wyświetli tylko te elementy listy, które nie mają wartości "spam". Ponadto jeżeli element listy ma wartość "malware" program powinien natychmiast przerwać działanie. Użyj instrukcji break. Informacji o działaniu instrukcji break poszukaj w internecie.
+# list_of_words = ["spam", "stół", "spam", "brązowy", "powietrze", "malware", "spam", "koniec"]
+# wyświetli tylko te elementy listy, które nie mają wartości "spam". Ponadto jeżeli element listy ma wartość "malware" program powinien natychmiast przerwać działanie. Użyj instrukcji break. Informacji o działaniu instrukcji break poszukaj w internecie.
 
 
-#Napisz program, który dla zadanej listy wyświetli kolejno wszystkie jej elementy razem z ich typami.
-a_list = [4, True, None]
+# Napisz program, który dla zadanej listy wyświetli kolejno wszystkie jej elementy razem z ich typami.
+# a_list = [4, True, None]
+# a_list = [1, 3, 5, 2, 5, 6, 7, 4, 9, 7]
+#
+# #1
+# # print(a_list)
+#
+# #2
+# # print(a_list[0:6])
+# #3
+# # print(a_list[4:10])
+# #4
+# # a_list_par = [num for num in a_list if num % 2 == 0]
+# # print(a_list_par)
+# #5
+# # a_list_nie = [a_list[i] for i in range(0, len(a_list)) if i % 2 != 0]
+# # print(a_list_nie)
+#
+# #or przez WHILE
+#
+# # niep_list = []
+# # i = 1
+# # while i < len(a_list):
+# #     niep_list.append(a_list[i])
+# #     i += 2
+# # print(niep_list)
+#
+# #6
+# # for item in a_list:
+# #     print(item)
+# # for item in a_list:
+# #     if item %2 == 0:
+# #         print(item)
+# # print(a_list[5:-1])
+# # for i in a_list:
+# #     if i%2==0:
+# #         print(i)
+# # print(a_list[1::2])
+# # for i in a_list:
+# #     if i != 5:
+# #         print(i, end=' ')
+# print(a_list)
+
+# %% class
+
+# class Pies:
+#     def __init__(self, name, is_hungry):
+#         self.name = name
+#         self.is_hungry = is_hungry
+#     def szczekaj(self):
+#         print("Hau, hau")
+#     def jedz(self):
+#         if self.is_hungry == True:
+#             self.is_hungry = False
+
+
+# pies1 = Pies("Burek", True)
+# pies1.is_hungry
+# pies1.jedz()
+# pies1.is_hungry
+
+
+# class Person:
+#     def __init__(self, name, srname, gender, age, pesel):
+#         self.name = name
+#         self.srname = srname
+#         self.gender = gender
+#         self.age = age
+#         self.pesel = pesel
+#     def pens(self):
+#         if self.gender == 'M' and self.age >= 65:
+#             print('Yes, this man is retired')
+#         elif self.gender == 'F' and self.age >= 60:
+#             print('Yes, this woman is a pensioner')
+#         else:
+#             print('No, this person is not retired')
+#     def age_difference(self, other_person):
+#         diff = abs(self.age - other_person.age)
+#         return diff
+
+# %%
+# f -строки
+
+# header1 = "Name"
+# header2 = "Age"
+# name = "John"
+# age = 22
+
+# print(f"| {header1:10} | {header2:10} |")
+# print("-" * 27)
+# print(f"| {name:10} | {age:10} |")
+
+
+# # Zmiana sposobu wyswietlania zmiennej
+# n = 109.2345654324
+# print(f"{n:.3f}")  # wyswietli 109.234
+
+# procent = 0.71
+# print(f"{procent:.1%}")  # wyswietli 71.0%
+
+# %%
