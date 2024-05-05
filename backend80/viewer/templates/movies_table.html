@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Hollymovies table</h1>
+
+<table>
+    {% for movie in movies %}
+        <tr>
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.genre }}</td>
+            <td>{{ movie.released }}</td>
+            <td>{{ movie.description }}</td>
+            <td>{{ movie.created }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
+
+
+<a class="navbar-brand" href="{% url 'index' %}" >HollyMovies</a>
