@@ -1,4 +1,21 @@
-liczba = import('Podaj liczbe: ')
+class D:
+    pass
 
-def proste(liczba):
-    
+
+class E:
+    pass
+
+
+class B(D, E):
+    pass
+
+
+class C:
+    pass
+
+
+class A(B, C):
+    pass
+
+
+print(A.mro())
