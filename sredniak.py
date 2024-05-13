@@ -934,3 +934,255 @@ print(E.mro())
 
 
 #%%
+class Osoba:
+    def __init__(self, imie, wiek):
+        self.imie = imie
+        self.wiek = wiek
+
+    def __str__(self):
+        return f"{self.imie} ma {self.wiek} lat"
+
+
+class Pracownik(Osoba):
+    def __init__(self, imie, wiek, stawka, liczba_godzin):
+        super().__init__(self, imie, wiek)
+        self.stawka = stawka
+        self.liczba_godzin = liczba_godzin
+
+    def pokaz_finanse(self):
+        return self.stawka * self.liczba_godzin
+
+
+class Student(Osoba):
+    def __init__(self, imie, wiek, stypendium):
+        super().__init__(self, imie, wiek)
+        self.stypendium = stypendium
+
+    def pokaz_finanse(self):
+        return self.stypendium
+
+
+class PracujacyStudent(Pracownik, Student):
+    def __init__(self, imie, wiek, stawka, liczba_godzin, stypendium):
+        Pracownik.__init__(self, imie, wiek, stawka, liczba_godzin)
+        Student.__init__(self, imie, wiek, stypendium)
+
+    def pokaz_finanse(self):
+        return self.stawka * self.liczba_godzin + self.stypendium
+
+
+os1 = Osoba("Henryk", 54)
+os2 = Pracownik("Jacek", 36, 20, 160)
+os3 = Student("Agata", 22, 1000)
+os4 = PracujacyStudent("Monika", 24, 9.5, 70, 550)
+print(os1)
+print(os2)
+print(os3)
+print(os4)
+
+#%%
+from abc import ABC, abstractmethod
+    from math import pi
+
+
+    class Figura(ABC):
+        @abstractmethod
+        def obwod(self):
+            pass
+
+        @abstractmethod
+        def pole(self):
+            pass
+
+    class Prostokat(Figura):
+        def __init__(self, a, b):
+            self.a = a
+            self.b = b
+
+        def obwod(self):
+            return 2 * (self.a + self.b)
+
+        def pole(self):
+            return self.a * self.b
+
+
+    class Kolo(Figura):
+        def __init__(self, r):
+            self.r = r
+
+        def obwod(self):
+            return 2 * self.r * pi
+
+        def pole(self):
+            return pi * self.r ** 2
+        
+    prostokat = Prostokat(3, 5)
+    kolo = Kolo(12)
+    print(prostokat.obwod())
+    print(kolo.obwod())
+
+store_name = "Shopshoe"
+item_name = "Running shoes"
+item_price = 100.00
+item_discount = 0.30
+
+discounted_price = item_price * (1 - item_discount)
+
+message = (
+    f"Welcome to {store_name}!\n"
+    f'{"-" * 50}\n'
+    f"Today's special is the {item_name}, which normally costs "
+    f"${item_price:.2f}.\nBut for a limited time, you can get it "
+    f"for ${discounted_price:.2f} ({item_discount:.0%} off)!"
+)
+
+print(message)
+
+
+brand = "Ford"
+model = "Mustang"
+year = "2021"
+color = "Red"
+mileage = "5000"
+
+print('CAR DETAILS')
+print(f'Make: {brand}')
+print(f'Model: {model}')
+print(f'Year: {year}')
+print(f'Color: {color}')
+print(f'Mileage: {mileage} miles')
+
+experiment_name = 'The Effects of Temperature on Enzyme Activity'
+treatment_group = 'Group A'
+enzyme_activity = 12.3456
+
+print(f'Welcome to {experiment_name}!')
+print(f'The {treatment_group} enzyme activity level is {enzyme_activity:.2f} units.')
+
+item1 = 'Apples'
+quantity1 = 5
+price1 = 1.50
+
+item2 = 'Bananas'
+quantity2 = 7
+price2 = 0.99
+
+item3 = 'Oranges'
+quantity3 = 4
+price3 = 2.25
+
+empty_pipe = "|" + "-" *15
+print(empty_pipe*3, end="|\n")
+
+print(f'| {item1}        | {quantity1}             | ${price1:.2f}         |')
+print(f'| {item2}       | {quantity2}             | ${price2:.2f}         |')
+print(f'| {item3}       | {quantity3}             | ${price3:.2f}         |')
+
+item1 = 'Apple'
+quantity1 = 10
+price1 = 1.50
+
+item2 = 'Banana'
+quantity2 = 5
+price2 = 0.75
+
+item3 = 'Cherry'
+quantity3 = 20
+price3 = 0.25
+
+line = "+" + "-" * 9 + "+" + "-" * 13 + "+" + "-" * 11 + "+"
+
+dane1 = "Item"
+dane2 = "Quantity"
+dane3 = "Price"
+
+print(line)
+print(f"| {dane1:<7} | {dane2:<11} | {dane3:<9} |")
+print(line)
+print(f"| {item1:<7} | {quantity1:<11} | ${price1:<8.2f} |")
+print(f"| {item2:<7} | {quantity2:<11} | ${price2:<8.2f} |")
+print(f"| {item3:<7} | {quantity3:<11} | ${price3:<8.2f} |")
+print(line)
+
+
+line = "=" * 50
+menu = "> Main Menu"
+line1 = "1. View all products"
+line2 = "2. Search for a product"
+line3 = "3. Add a new product"
+line4 = "5. Delete a product"
+line5 = "7. Checkout"
+line6 = "8. Exit"
+
+
+print(line)
+print(menu)
+print(line)
+print(f'\t{line1}\n\t{line2}\n\t{line3}\n\t{line4}\n\t{line5}\n\t{line6}')
+
+ring = 5
+PI = 3.14
+print(f'The area of the circle is: {PI*ring**2} cm2')
+
+prc = 0.03
+kwota = 1000
+okres = 5
+
+inwest = kwota * (1+prc) ** okres
+
+print(f'The final value of the investment is: {inwest:.2f} PLN')
+
+
+num_of_cars = 100
+num_of_parts = 1000
+cost_per_part = 10
+
+# Enter your solution here
+total_cost = num_of_cars*num_of_parts*cost_per_part
+avg_cost_per_car = total_cost/num_of_cars
+
+print('Total cost of manufacturing all the cars: ', total_cost)
+print('Average cost per car:', avg_cost_per_car)
+
+num_of_cars = 100
+num_of_parts = 1000
+cost_per_part = 10
+
+# Enter your solution here
+total_cost = num_of_cars*num_of_parts*cost_per_part
+avg_cost_per_car = total_cost/num_of_cars
+
+print('Total cost of manufacturing all the cars: ', total_cost, sep='')
+print('Average cost per car: ', avg_cost_per_car, sep= "")
+
+
+num_of_users = 9045
+num_of_posts = 54822
+num_of_likes = 251561
+
+avg_posts_per_user = num_of_posts / num_of_users
+avg_likes_per_post = num_of_likes / num_of_posts
+
+print(f'Average number of posts per user: {avg_posts_per_user:.2f}')
+print(f'Average number of likes per post: {avg_likes_per_post:.2f}')
+
+employee_id = 123451612
+username_number = employee_id % 10001
+username_suffix = str(username_number)
+username = 'user_' + username_suffix
+print(username)
+
+total_num_posts = 47
+posts_per_page = 10
+
+pg = total_num_posts / posts_per_page
+
+print(f'The total number of pages required to display all the posts is: {round(pg)}')
+
+file_name = 'view.jpg'
+# Enter your solution here
+
+print(f'The file extension of the file "{file_name}" is: {file_name[5:8]}')
+
+
+
