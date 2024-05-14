@@ -576,3 +576,138 @@
 # print(area3)
 
 # %%
+class Parent:
+    def say_hello(self):
+        print("Привет от родительского класса!")
+
+class Child(Parent):
+    def say_hello(self):
+        super().say_hello()
+        print("Привет от дочернего класса!")
+
+c = Child()
+c.say_hello()
+
+#%%
+class BankAccount:
+  
+    def __init__(self, number, sum):
+        self.account_number = number
+        self.balance = sum
+        print(f"Создан счет. Начальный баланс: {sum} единиц")
+     
+    def add(self, sum):
+        self.balance = self.balance + sum
+        print(f"На счет зачислено: {sum} единиц")
+         
+    def withdraw(self, sum):
+        if self.balance >= sum: 
+            self.balance = self.balance - sum
+            print(f"Со счета снято: {sum} единиц")
+        else:
+            print("Недостаточно средств на счете")
+  
+ 
+acc1 = BankAccount("123456577", 1000)
+acc1.add(200)
+acc1.withdraw(500)
+acc1.withdraw(300)
+acc1.withdraw(900)
+
+#%%
+# from dataclasses import dataclass
+#
+# @dataclass
+# class Prostokat():
+#     a: int
+#     b: int
+#
+#     def obwod(self):
+#         return 2 * (self.a + self.b)
+#
+#     def pole(self):
+#         return self.a * self.b
+#
+# p1 = Prostokat(3,4)
+# p2 = Prostokat(5,6)
+# print(p1)
+# print(p1 == p2)
+
+class Prostokat():
+    def __init__(self, a:int, b:int):
+        self.a = a
+        self.b = b
+
+    def __repr__(self) -> str:
+        return f'Prostokat(a={self.a}, b={self.b})'
+
+    def __eq__(self, other) -> bool:
+        return isinstance(other, Prostokat) and self.a == other.a and self.b == other.b
+
+    def obwod(self) -> float:
+        return 2*(self.a+self.b)
+
+    def pole(self) -> float:
+        return self.a*self.b
+
+P1 = Prostokat(2, 3)
+P2 = Prostokat(2, 4)
+print(P1.obwod)
+print(P1.pole())
+
+#%%
+import time
+
+
+def timing_decorator(func):
+    def wrapper():
+        start_time = time.time()
+        func()
+        end_time = time.time()
+        print(f"Функция {func.__name__} выполнялась {end_time - start_time:.2f} секунд")
+
+    return wrapper
+
+
+@timing_decorator
+def some_long_running_function():
+    time.sleep(5)
+    print("Функция завершила работу")
+
+
+some_long_running_function()
+
+
+#%%
+def upper(string):
+    return string.upper()
+
+
+i = ["one", "two", "three"]
+
+newlist = list(map(upper, i))
+newlist2 = list(str.upper() for str in i)
+
+print(newlist)
+print(newlist2)
+
+#%%
+items = [
+    1,
+    2,
+    3,
+    4,
+    5,
+]
+
+# odds = list(filter(lambda x: x % 3, items))
+
+# print(odds)
+
+from functools import reduce
+
+items_sum = reduce(lambda x: x % 3, items)
+print(items_sum)
+
+#%%
+
