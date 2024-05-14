@@ -710,4 +710,156 @@ items_sum = reduce(lambda x: x % 3, items)
 print(items_sum)
 
 #%%
+# from dataclasses import dataclass
+#
+# @dataclass
+# class Prostokat():
+#     a: int
+#     b: int
+#
+#     def obwod(self):
+#         return 2 * (self.a + self.b)
+#
+#     def pole(self):
+#         return self.a * self.b
+#
+# p1 = Prostokat(3,4)
+# p2 = Prostokat(5,6)
+# print(p1)
+# print(p1 == p2)
+
+class Prostokat():
+    def __init__(self, a:int, b:int):
+        self.a = a
+        self.b = b
+
+    def __repr__(self) -> str:
+        return f'Prostokat(a={self.a}, b={self.b})'
+
+    def __eq__(self, other) -> bool:
+        return isinstance(other, Prostokat) and self.a == other.a and self.b == other.b
+
+    def obwod(self) -> float:
+        return 2*(self.a+self.b)
+
+    def pole(self) -> float:
+        return self.a*self.b
+
+P1 = Prostokat(2, 3)
+P2 = Prostokat(2, 4)
+print(P1.obwod)
+print(P1.pole())
+
+#%%
+string = "1 0 0 1 0 1"
+str2 = int(string[::2], 2)
+print(f"The found number is: {str2}")
+
+#%%
+input_text = "Python Course"
+result = input_text[::-1]
+print(f'The reversed text of "Python Course" is: {result}')
+
+
+#%%
+# Original list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+# First three elements: [0, 1, 2]
+# Last three elements: [7, 8, 9]
+
+all_num = list(range(0, 10))
+three_first_num = list(all_num[0:3])
+three_last_num = list(all_num[-3:])
+
+print(f"Original list: {all_num}")
+print(f"First three elements: {three_first_num}")
+print(f"Last three elements: {three_last_num}")
+
+#%%
+personnel = [
+    "John Smith, Private First Class",
+    "Jane Doe, Captain",
+    "Bob Johnson, Sergeant",
+]
+
+# Enter your solution here
+pers1 = personnel[2]
+pers2 = pers1[0:11]
+print(str(pers2))
+ #or
+
+personnel = [
+    "John Smith, Private First Class",
+    "Jane Doe, Captain",
+    "Bob Johnson, Sergeant",
+]
+
+# Enter your solution here
+pers1 = personnel[2][:11]
+print(str(pers1))
+
+#%%
+stock_prices = [
+    102.3,
+    103.4,
+    105.6,
+    108.2,
+    109.7,
+    112.4,
+    113.6,
+    115.2,
+    116.8,
+    119.1,
+    121.3,
+    122.5,
+    124.7,
+    126.1,
+    127.4,
+    129.2,
+    130.4,
+    132.6,
+    133.8,
+    135.1,
+    136.3,
+]
+
+# Enter your solution here
+x = stock_prices[:5]
+y = stock_prices[-5:]
+first_p = sum(x) / 5
+sec_p = sum(y) / 5
+
+# first_p =
+# sec_p =
+
+
+print(f"Average stock price for the first week: ${first_p:.2f}")
+print(f"Average stock price for the last week: ${sec_p:.2f}")
+
+
+#%%
+parts = [
+    ["50x20x1.5", "25x10x1.0"],
+    ["55x22x1.8", "30x15x1.2"],
+    ["60x24x2.0", "35x20x1.5"],
+]
+
+# # Enter your solution here
+# l - długośc
+# w - szerokość
+# t - grubość
+
+# float
+
+part_that_i_need = str(parts[1][:1])
+
+corrected_arg = str(part_that_i_need.replace("x", ""))
+print(corrected_arg)
+
+l = float(corrected_arg[2:4])
+w = float(corrected_arg[4:6])
+t = float(corrected_arg[6:9])
+
+print(f"length = {l}")
+print(f"width = {w}")
+print(f"height = {t}")
 

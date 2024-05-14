@@ -5,10 +5,13 @@ Created on Fri Oct  6 11:21:04 2023
 @author: Lich Rave
 """
 # First comment
+"""
+training from scratch, day 45 (14.05.24)
+"""
 
 # %%
 b3
-print("training from scratch, day 45 (14.05.24)")
+print("2")
 print(2 + 2)
 print(3 * 3)
 
