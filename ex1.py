@@ -940,3 +940,182 @@ if __name__ == "__main__":
 
 
 # %%
+class Employee:
+    def __init__(self, name, age, salary, title):
+        self.name = name
+        self.age = age
+        self.salary = salary
+        self.title = title
+
+    def introduce_yourself(self):
+        return f"Hello, I'm Employee! My name {self.name}, I'm {self.age} years old, and my title is {self.title} and my salary is $ {self.salary}"
+
+    def salary_incrise(self, increase):
+        self.salary += increase
+        return f"Now my salary is $ {self.salary}"
+
+
+class Boss(Employee):
+    def __init__(self, name, age, salary, title):
+        super().__init__(name, age, salary, title)
+        self.employees = []
+
+    def add_employee(self, employee):
+        self.employees.append(employee)
+
+    def increase_salaries(self, increase):
+        for employee in self.employees:
+            employee.salary_increase(increase)
+
+    def introduce_yourself(self):
+        return super().introduce_yourself() + "And I am a boss!"
+
+
+# main
+
+from employee import Employee, Boss
+
+employee1 = Employee("John", 20, 5000, "Programmer")
+employee2 = Employee("Jane", 30, 10000, "Manager")
+employee3 = Employee("Puma", 50, 2500, "Engineer")
+employee4 = Employee("Nike", 42, 3558, "Elektroman")
+employee5 = Employee("Sam", 25, 5000, "Engineer")
+
+boss = Boss("Rebook", 19, 550000, "Boss")
+
+boss.add_employee(employee1)
+boss.add_employee(employee2)
+boss.add_employee(employee3)
+boss.add_employee(employee4)
+boss.add_employee(employee5)
+
+print(employee1.introduce_yourself())
+print(employee2.introduce_yourself())
+print(employee3.introduce_yourself())
+print(employee4.introduce_yourself())
+print(employee5.introduce_yourself())
+print(boss.introduce_yourself())
+
+boss.increase_salaries(5000)
+
+print(employee1.introduce_yourself())
+print(employee2.introduce_yourself())
+print(employee3.introduce_yourself())
+print(employee4.introduce_yourself())
+print(employee5.introduce_yourself())
+print(boss.introduce_yourself())
+
+
+# %%
+from dataclasses import dataclass, field
+
+
+@dataclass
+class Employee:
+    name: str
+    age: int
+    salary: int
+    title: str
+
+    def introduce_yourself(self):
+        return (
+            f"Hello, I'm {self.name}, I have {self.age} y.o., my salary: ${self.salary}"
+        )
+
+    def salary_increase(self, increase):
+        self.salary += increase
+        return f"My new salary is: ${self.salary}"
+
+
+@dataclass
+class Boss(Employee):
+    employees: list = field(default_factory=list)
+
+    def add_employee(self, employee):
+        self.employees.append(employee)
+
+    def increase_salary(self, increase):
+        for employee in self.employees:
+            employee.salary_increase(increase)
+
+    def introduce_yourself(self):
+        return super().introduce_yourself() + " And I am a boss!"
+
+
+# main.py
+from employee import Employee, Boss
+
+# Создаем сотрудников
+employee1 = Employee("Иван", 30, 50000, "инженер")
+employee2 = Employee("Анна", 28, 55000, "дизайнер")
+employee3 = Employee("Сергей", 35, 60000, "разработчик")
+
+# Создаем босса
+boss = Boss("Алексей", 45, 100000, "директор")
+
+# Босс добавляет сотрудников
+boss.add_employee(employee1)
+boss.add_employee(employee2)
+boss.add_employee(employee3)
+
+# Все представляются
+# print(employee1.introduce_yourself())
+# print(employee2.introduce_yourself())
+# print(employee3.introduce_yourself())
+# print(boss.introduce_yourself())
+
+# Босс повышает зарплату всем сотрудникам
+boss.increase_salary(15000000)
+
+# Все снова представляются
+print(employee1.introduce_yourself())
+print(employee2.introduce_yourself())
+print(employee3.introduce_yourself())
+
+
+# %%
+class Osoba:
+    def __init__(self, imie, wiek):
+        self.imie = imie
+        self.wiek = wiek
+
+    def __str__(self):
+        return f"{self.imie} ma {self.wiek} lat"
+
+
+class Pracownik(Osoba):
+    def __init__(self, imie, wiek, stawka, liczba_godzin):
+        super().__init__(self, imie, wiek)
+        self.stawka = stawka
+        self.liczba_godzin = liczba_godzin
+
+    def pokaz_finanse(self):
+        return self.stawka * self.liczba_godzin
+
+
+class Student(Osoba):
+    def __init__(self, imie, wiek, stypendium):
+        super().__init__(self, imie, wiek)
+        self.stypendium = stypendium
+
+    def pokaz_finanse(self):
+        return self.stypendium
+
+
+class PracujacyStudent(Pracownik, Student):
+    def __init__(self, imie, wiek, stawka, liczba_godzin, stypendium):
+        Pracownik.__init__(self, imie, wiek, stawka, liczba_godzin)
+        Student.__init__(self, imie, wiek, stypendium)
+
+    def pokaz_finanse(self):
+        return self.stawka * self.liczba_godzin + self.stypendium
+
+
+os1 = Osoba("Henryk", 54)
+os2 = Pracownik("Jacek", 36, 20, 160)
+os3 = Student("Agata", 22, 1000)
+os4 = PracujacyStudent("Monika", 24, 9.5, 70, 550)
+print(os1)
+print(os2)
+print(os3)
+print(os4)

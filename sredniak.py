@@ -1184,5 +1184,66 @@ file_name = 'view.jpg'
 
 print(f'The file extension of the file "{file_name}" is: {file_name[5:8]}')
 
+#%%
+import urllib.request
+import ssl
+import codecs
+import json
+
+
+def get_from_url(url):
+    context = ssl._create_unverified_context()
+    req = urllib.request.Request(url=url, method="GET")
+    with urllib.request.urlopen(req, context=context) as f:
+        if f.status == 200:
+            content = f.read().decode()
+        else:
+            return False
+    return content
+
+
+def get_data_from_url(url, file_name):
+    context = ssl._create_unverified_context()
+    req = urllib.request.Request(url=url, method="GET")
+    with urllib.request.urlopen(req, context=context) as f:
+        if f.status == 200:
+            content = f.read()
+        else:
+            return False
+
+    with open(file_name, "wb") as f2:
+        f2.write(content)
+    return True
+
+
+def get_text_from_url(url, file_name):
+    context = ssl._create_unverified_context()
+    req = urllib.request.Request(url=url, method="GET")
+    with urllib.request.urlopen(req, context=context) as f:
+        if f.status == 200:
+            content = f.read().decode("unicode")
+            print(content)
+        else:
+            return False
+
+    with open(file_name, "w") as f2:
+        f2.write(content)
+    return True
+
+
+if __name__ == "__main__":
+    # get_data_from_url('https://bilingual-kid.com/wp-content/uploads/2019/07/Bolek-i-Lolek.png', 'bolek.png')
+    # get_data_from_url('https://onet.pl', 'onet.html')
+
+    json_data = json.loads(
+        get_from_url("https://api.nbp.pl/api/exchangerates/rates/a/chf?format=json")
+    )
+
+    zloty = float(input("Podaj wartość[PLN]"))
+    kurs = float(json_data["rates"][0]["mid"])
+    print(f"{zloty}[PLN] = {zloty/kurs}[CHF] po kursie {kurs}")
+
+#%%
+
 
 
