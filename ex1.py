@@ -575,46 +575,50 @@
 # print(area2)
 # print(area3)
 
+
 # %%
 class Parent:
     def say_hello(self):
         print("Привет от родительского класса!")
+
 
 class Child(Parent):
     def say_hello(self):
         super().say_hello()
         print("Привет от дочернего класса!")
 
+
 c = Child()
 c.say_hello()
 
-#%%
+
+# %%
 class BankAccount:
-  
+
     def __init__(self, number, sum):
         self.account_number = number
         self.balance = sum
         print(f"Создан счет. Начальный баланс: {sum} единиц")
-     
+
     def add(self, sum):
         self.balance = self.balance + sum
         print(f"На счет зачислено: {sum} единиц")
-         
+
     def withdraw(self, sum):
-        if self.balance >= sum: 
+        if self.balance >= sum:
             self.balance = self.balance - sum
             print(f"Со счета снято: {sum} единиц")
         else:
             print("Недостаточно средств на счете")
-  
- 
+
+
 acc1 = BankAccount("123456577", 1000)
 acc1.add(200)
 acc1.withdraw(500)
 acc1.withdraw(300)
 acc1.withdraw(900)
 
-#%%
+# %%
 # from dataclasses import dataclass
 #
 # @dataclass
@@ -633,29 +637,31 @@ acc1.withdraw(900)
 # print(p1)
 # print(p1 == p2)
 
-class Prostokat():
-    def __init__(self, a:int, b:int):
+
+class Prostokat:
+    def __init__(self, a: int, b: int):
         self.a = a
         self.b = b
 
     def __repr__(self) -> str:
-        return f'Prostokat(a={self.a}, b={self.b})'
+        return f"Prostokat(a={self.a}, b={self.b})"
 
     def __eq__(self, other) -> bool:
         return isinstance(other, Prostokat) and self.a == other.a and self.b == other.b
 
     def obwod(self) -> float:
-        return 2*(self.a+self.b)
+        return 2 * (self.a + self.b)
 
     def pole(self) -> float:
-        return self.a*self.b
+        return self.a * self.b
+
 
 P1 = Prostokat(2, 3)
 P2 = Prostokat(2, 4)
 print(P1.obwod)
 print(P1.pole())
 
-#%%
+# %%
 import time
 
 
@@ -678,7 +684,7 @@ def some_long_running_function():
 some_long_running_function()
 
 
-#%%
+# %%
 def upper(string):
     return string.upper()
 
@@ -691,7 +697,7 @@ newlist2 = list(str.upper() for str in i)
 print(newlist)
 print(newlist2)
 
-#%%
+# %%
 items = [
     1,
     2,
@@ -709,7 +715,7 @@ from functools import reduce
 items_sum = reduce(lambda x: x % 3, items)
 print(items_sum)
 
-#%%
+# %%
 # from dataclasses import dataclass
 #
 # @dataclass
@@ -728,40 +734,42 @@ print(items_sum)
 # print(p1)
 # print(p1 == p2)
 
-class Prostokat():
-    def __init__(self, a:int, b:int):
+
+class Prostokat:
+    def __init__(self, a: int, b: int):
         self.a = a
         self.b = b
 
     def __repr__(self) -> str:
-        return f'Prostokat(a={self.a}, b={self.b})'
+        return f"Prostokat(a={self.a}, b={self.b})"
 
     def __eq__(self, other) -> bool:
         return isinstance(other, Prostokat) and self.a == other.a and self.b == other.b
 
     def obwod(self) -> float:
-        return 2*(self.a+self.b)
+        return 2 * (self.a + self.b)
 
     def pole(self) -> float:
-        return self.a*self.b
+        return self.a * self.b
+
 
 P1 = Prostokat(2, 3)
 P2 = Prostokat(2, 4)
 print(P1.obwod)
 print(P1.pole())
 
-#%%
+# %%
 string = "1 0 0 1 0 1"
 str2 = int(string[::2], 2)
 print(f"The found number is: {str2}")
 
-#%%
+# %%
 input_text = "Python Course"
 result = input_text[::-1]
 print(f'The reversed text of "Python Course" is: {result}')
 
 
-#%%
+# %%
 # Original list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 # First three elements: [0, 1, 2]
 # Last three elements: [7, 8, 9]
@@ -774,7 +782,7 @@ print(f"Original list: {all_num}")
 print(f"First three elements: {three_first_num}")
 print(f"Last three elements: {three_last_num}")
 
-#%%
+# %%
 personnel = [
     "John Smith, Private First Class",
     "Jane Doe, Captain",
@@ -785,7 +793,7 @@ personnel = [
 pers1 = personnel[2]
 pers2 = pers1[0:11]
 print(str(pers2))
- #or
+# or
 
 personnel = [
     "John Smith, Private First Class",
@@ -797,7 +805,7 @@ personnel = [
 pers1 = personnel[2][:11]
 print(str(pers1))
 
-#%%
+# %%
 stock_prices = [
     102.3,
     103.4,
@@ -836,7 +844,7 @@ print(f"Average stock price for the first week: ${first_p:.2f}")
 print(f"Average stock price for the last week: ${sec_p:.2f}")
 
 
-#%%
+# %%
 parts = [
     ["50x20x1.5", "25x10x1.0"],
     ["55x22x1.8", "30x15x1.2"],
@@ -863,3 +871,72 @@ print(f"length = {l}")
 print(f"width = {w}")
 print(f"height = {t}")
 
+
+# %%
+# %% 1
+
+import random
+
+random_numbers = [random.randint(-999, 999) for number in range(100)]
+print(len(random_numbers))
+
+print_numbers = [f"{number} -> {number**2}\n" for number in random_numbers]
+
+with open("liczby_kwadratowe.txt", "w") as file:
+    file.writelines(print_numbers)
+    # for number in random_numbers:
+    # file.write(f"{number} -> {number**2}\n")
+    # print(f"{number} -> {number**2}", file=file)
+
+file.close()
+print("Koniec")
+
+
+# %% 2
+with open("Liczby_kwadratowe.txt", "a+") as f:
+    f.write("Cos dopisane\n")
+    f.seek(0)
+    content = f.read()
+
+
+print(content)
+
+# %% 3 najdłuższe słowo w pliku
+
+with open("slowa.txt") as f:
+    content = f.read()  # Cały tekst jako napis
+    slowa = content.split()  # pojedyncze słowa
+    najdluzsze = max(slowa, key=len)
+    print(najdluzsze)
+
+# %%
+
+import threading
+
+
+def iterate_print(iter):
+    for item in iter:
+        print(item)
+
+
+if __name__ == "__main__":
+    # tworzenie wątków
+    t1 = threading.Thread(
+        target=iterate_print, args=(range(5),)
+    )  # wypisywanie kolejnych liczb naturalnych
+    t2 = threading.Thread(
+        target=iterate_print, args=("Python",)
+    )  # wypisywanie kolejnych znaków napisu
+
+    # uruchomienie wątków
+    t1.start()
+    t2.start()
+
+    # czekanie z wykonaniem dalszego kodu, aż oba wątki się zakończą
+    t1.join()
+    t2.join()
+
+    print("Done!")
+
+
+# %%
