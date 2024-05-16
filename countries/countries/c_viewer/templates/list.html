@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Countries table</h1>
+
+<table>
+    {% for country in object_list %}
+    <tr>
+        <td>{{ country.name }}</td>
+        <td>{{ country.region }}</td>
+        <td>{{ country.population }}</td>
+        <td>{{ country.population_density }}</td>
+        <td>{{ country.dgp }}</td>
+        <td>{{ country.dgp_per_capita }}</td>
+    </tr>>
+    {% endfor %}
+</table>>
+</body>
+</html>
