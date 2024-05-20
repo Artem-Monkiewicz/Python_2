@@ -4,7 +4,10 @@ import string
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import View
+from django.views.generic import FormView
 
+
+from .forms import MovieForm
 from .models import ShortUrls, Movie
 
 
@@ -69,3 +72,6 @@ def short_url (request):
         }
     )
 
+class MovieCreateView(FormView):
+    template_name = 'form.html'
+    form_class = MovieForm

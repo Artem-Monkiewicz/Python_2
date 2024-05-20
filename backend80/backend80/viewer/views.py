@@ -2,7 +2,8 @@ import random
 import string
 
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponsefrom django.views.generic import FormView
+from .forms import MovieForm
 
 from .models import ShortUrls
 
@@ -37,3 +38,7 @@ def show_url(request, shortcut):
         return redirect(url_record.url)
     else:
         return HttpResponse("No shortcut provided!")
+
+class MovieCreateView(FormView):
+    template_name = 'form.html'
+    form_class = MovieForm

@@ -31,6 +31,7 @@ urlpatterns = [
     path('redirect/<shortcut>', show_url),
     path('tv', template_view),
     path('movies_table', movies_table),
-    path('ShURL', short_url)
+    path('ShURL', short_url),
+    path('movie_create_view', MovieCreateView.as_view(), name= 'movie_create' )
 ]
 
