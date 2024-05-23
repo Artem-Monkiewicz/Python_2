@@ -1,24 +1,37 @@
-from django.forms import Form, CharField, IntegerField, DecimalField, ChoiceField
-
+from typing import Any
+from django.forms import ModelForm, CharField, IntegerField, DecimalField, ChoiceField
 from django.core.exceptions import ValidationError
-from c_viewer.models import Country
+from django.contrib.auth.forms import UserCreationForm
+
+from .models import Country
 
 
 def capitalized_validator(value):
     if value[0].islower():
         raise ValidationError("Value must be capitalized")
-    
-# class PastDateField(DateField):
-#     def validate(self, value):
-#         super().validate(value)
-#         if value >= date.today():
-#             raise ValidationError('Only past dates allowed')
 
 
-class CountryForm(Form):
-    name = CharField(max_length=500, validators=[capitalized_validator])
+class CountryForm(ModelForm):
+    class Meta:
+        model = Country
+        fields = "__all__"
+
+    name = CharField(max_length=128, validators=[capitalized_validator])
     region = ChoiceField(choices=Country.region_choices)
     population = IntegerField()
-    population_density = DecimalField(decimal_places=2, max_digits=20)
-    gdp = DecimalField(decimal_places=2, max_digits=20)
-    gdp_per_capita = DecimalField(decimal_places=2, max_digits=20)
+    population_density = DecimalField(max_digits=20, decimal_places=2)
+    gdp = DecimalField(max_digits=20, decimal_places=2)
+
+    def clean(self):
+        result = super().clean()
+        result["gdp_per_capita"] = result["gdp"] / result["population"]
+        return result
+
+
+class SignUpForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        fields = ["username"]
+
+    def save(self, commit=True):
+        self.instance.is_active = False
+        return super().save(commit)
