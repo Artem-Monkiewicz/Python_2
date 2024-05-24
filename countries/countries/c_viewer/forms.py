@@ -3,7 +3,7 @@ from django.forms import ModelForm, CharField, IntegerField, DecimalField, Choic
 from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import Country
+from .models import Country, Profile
 
 
 def capitalized_validator(value):
@@ -30,8 +30,12 @@ class CountryForm(ModelForm):
 
 class SignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
-        fields = ["username"]
+        fields = ["username", "email"]
 
     def save(self, commit=True):
         self.instance.is_active = False
-        return super().save(commit)
+        user = super().save(commit)
+        profile = Profile(user=user, no_click=0)
+        if commit:
+            profile.save()
+        return user

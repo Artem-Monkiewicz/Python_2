@@ -26,6 +26,7 @@ from c_viewer.views import (
     CountryDeleteView,
     CountriesList,
     SignUpView,
+    UserClicksView,
 )
 
 
@@ -68,4 +69,5 @@ urlpatterns = [
         name="password_reset_complete",
     ),
     path("accounts/sign_up", SignUpView.as_view(), name="sign_up"),
+    path("List_users_clicks", UserClicksView.as_view()),
 ]

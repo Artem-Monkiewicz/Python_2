@@ -1,4 +1,14 @@
-from django.db.models import Model, CharField, IntegerField, DecimalField
+from django.contrib.auth.models import User
+from django.db.models import (
+    Model,
+    CharField,
+    IntegerField,
+    DecimalField,
+    CASCADE,
+    Model,
+    OneToOneField,
+    TextField,
+)
 
 # Create your models here.
 
@@ -34,3 +44,8 @@ class Country(Model):
     population_density = DecimalField(decimal_places=2, max_digits=20)
     gdp = DecimalField(decimal_places=2, max_digits=20)
     gdp_per_capita = DecimalField(decimal_places=2, max_digits=20)
+
+
+class Profile(Model):
+    user = OneToOneField(User, on_delete=CASCADE)
+    no_click = IntegerField()
