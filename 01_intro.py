@@ -6,7 +6,7 @@ Created on Fri Oct  6 11:21:04 2023
 """
 # First comment
 """
-training from scratch, day 51 (24.05.24)
+training from scratch, day 52 (27.05.24)
 """
 
 # %%
