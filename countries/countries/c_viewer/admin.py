@@ -3,10 +3,20 @@ from .models import Country
 
 
 class CountryAdmin(admin.ModelAdmin):
-    ordering = ["name"]
-    list_display = ['id', 'name', 'region', ]
+    ordering = ["id"]
+    list_display = [
+        "id",
+        "name",
+        "region",
+        "population",
+        "population_density",
+        "gdp",
+        "gdp_per_capita"
+    ]
+    list_display_links = ["id", "name"]
+    list_per_page = 20
+    list_filter = ["region"]
+    search_fields = ["name"]
 
-
-# Register your models here.
 
 admin.site.register(Country, CountryAdmin)

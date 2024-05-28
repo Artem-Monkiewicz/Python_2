@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% block content %}
+<form method="post">
+  {% csrf_token %}
+  <p>
+    Are you sure you want to delete stock "{{ object.name }}" from database?
+  </p>
+  <input type="submit" value="Yes" class="btn btn-danger" />
+  <button type="'button" onclick="location.href='{% url 'index' %}'">No</button>
+</form>
+{% endblock %}

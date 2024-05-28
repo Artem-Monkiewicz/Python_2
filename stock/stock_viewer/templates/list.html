@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %}
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Current price</td>
+    <td>Open price</td>
+    <td>Min price</td>
+    <td>Max price</td>
+  </tr>
+  {% for stock in object_list %}
+  <tr>
+    <td>{{ stock.name }}</td>
+    <td>{{ stock.current_price }}</td>
+    <td>{{ stock.open_price }}</td>
+    <td>{{ stock.min_price }}</td>
+    <td>{{ stock.max_price }}</td>
+  </tr>
+  {% endfor %} {% endblock content %}
+</table>
