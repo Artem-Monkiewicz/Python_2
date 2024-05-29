@@ -29,7 +29,7 @@ from stock_viewer.views import (
     StockDeleteView,
 )
 
-handler403 = 'stock_viewer.views.cust_403'
+handler403 = "stock_viewer.views.cust_403"
 
 urlpatterns = [
     path("admin/", admin.site.urls),

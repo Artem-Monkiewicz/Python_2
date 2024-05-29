@@ -21,10 +21,12 @@ class Stock(models.Model):
     def __str__(self):  # Вид
         return f"{self.name}: {self.current_price}"
 
-class Transactions (models.Model):
+
+class Transactions(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     stock = models.OneToOneField(Stock, on_delete=models.CASCADE)
     quantity = DecimalField(max_digits=30, decimal_places=5)
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
