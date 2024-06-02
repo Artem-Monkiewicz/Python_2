@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}
+<table>
+  <tr>
+    <td>Timestamp</td>
+    <td>Stock</td>
+    <td>Quantity</td>
+  </tr>
+  {% for stock in object_list %}
+  <tr>
+    <td>{{ transaction.timestamp }}</td>
+    <td>{{ transaction.stock.name }}</td>
+    <td>{{ transaction.quantity }}</td>
+  </tr>
+  {% endfor %} {% endblock content %}
+</table>

@@ -10,8 +10,8 @@ from django.contrib.auth.mixins import (
 )
 from django.shortcuts import render
 
-from .forms import SignUpForm, StockForm
-from .models import Stock, Profile
+from .forms import SignUpForm, StockForm, TransactionForm
+from .models import Stock, Profile, Transactions
 
 # Create your views here.
 
@@ -73,3 +73,29 @@ class StockDeleteView(IsSuperUserMixin, DeleteView):
 
 def cust_403(request, exception):
     return render(request, "403.html")
+
+
+class TransactionsView(PermissionRequiredMixin, ListView):
+    template_name = "list_transaction.html"
+    model = Transactions
+    permission_required = "stock_viewer.view_transactions"
+
+
+class TransactionAddView(PermissionRequiredMixin, CreateView):
+    form_class = TransactionForm
+    template_name = "form.html"
+    success_url = reverse_lazy("t_list")
+    permission_required = "stock_viewer.add_transactions"
+
+
+class TransactionsUpdateView(PermissionRequiredMixin, UpdateView):
+    model = Transactions
+    template_name = "form.html"
+    form_class = TransactionForm
+    success_url = reverse_lazy("t_list")
+    permission_required = "stock_viewer.update_transaction"
+
+class TransactionDeleteView(IsSuperUserMixin, DeleteView):
+    model = Transactions
+    template_name = "delete.html"
+    success_url = reverse_lazy("t_list")

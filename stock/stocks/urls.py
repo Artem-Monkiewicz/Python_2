@@ -27,6 +27,10 @@ from stock_viewer.views import (
     StockAddView,
     StockUpdateView,
     StockDeleteView,
+    TransactionsView,
+    TransactionAddView,
+    TransactionsUpdateView,
+    TransactionDeleteView,
 )
 
 handler403 = "stock_viewer.views.cust_403"
@@ -73,4 +77,8 @@ urlpatterns = [
     path("add/", StockAddView.as_view(), name="add"),
     path("update/<pk>", StockUpdateView.as_view(), name="update"),
     path("delete/<pk>", StockDeleteView.as_view(), name="delete"),
+    path("transactions_list/", TransactionsView.as_view(), name="t_list"),
+    path("transacrions_add/", TransactionAddView.as_view(), name="t_add"),
+    path("transacrions_update/<pk>", TransactionsUpdateView.as_view(), name="t_update"),
+    path("transactions_delete/<pk>", TransactionDeleteView.as_view(), name="t_list"),
 ]
