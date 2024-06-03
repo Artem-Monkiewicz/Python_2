@@ -460,3 +460,30 @@ print(kobieta.partner)
 # ------- str,
 # ------- tuple,
 # ------- frozenset.
+
+"""Operacje na zbiorach: Python oferuje różne operacje na zbiorach, takie jak:
+
+add(element): Dodaje element do zbioru.
+
+remove(element): Usuwa element z zbioru. Generuje wyjątek, jeśli element nie istnieje.
+
+discard(element): Usuwa element z zbioru, jeśli istnieje, a w przeciwnym razie nie powoduje błędu.
+
+pop(): Usuwa i zwraca losowy element ze zbioru. Może być przydatny, gdy nie istnieje określony porządek w zbiorze.
+
+clear(): Usuwa wszystkie elementy ze zbioru.
+
+union(other_set): Zwraca nowy zbiór zawierający elementy z obecnego zbioru i innego zbioru.
+
+intersection(other_set): Zwraca nowy zbiór zawierający elementy wspólne obecnego zbioru i innego zbioru.
+
+difference(other_set): Zwraca nowy zbiór zawierający elementy, które występują w obecnym zbiorze, ale nie występują w innym zbiorze.
+
+symmetric_difference(other_set): Zwraca nowy zbiór zawierający elementy, które występują w jednym z dwóch zbiorów, ale nie w obu.
+
+issubset(other_set): Sprawdza, czy obecny zbiór jest podzbiorem innego zbioru.
+
+issuperset(other_set): Sprawdza, czy obecny zbiór jest nadzbiorem innego zbioru.
+"""
+"""
+"""

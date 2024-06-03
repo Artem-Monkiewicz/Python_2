@@ -1119,3 +1119,392 @@ print(os1)
 print(os2)
 print(os3)
 print(os4)
+
+# %%
+none_var = None
+bool_var1 = False
+bool_var2 = True
+
+# Enter your solution here
+
+print(f"The type of none_var is: {type(none_var)}")
+print(f"The type of bool_var1 variable is: {type(bool_var1)}")
+print(f"The type of bool_var2 variable is: {type(bool_var2)}")
+
+# %%
+my_flag = False
+
+if type(my_flag) is bool:
+    print("The variable is of boolean type: True")
+
+# %%
+followers = ["john", "jane", "jacob", "jessica", "jenny"]
+profile_picture = "https://example.com/profile.jpg"
+post_ids = [1, 2, 3, 4, 5]
+bio = "Travel enthusiast | Photographer | Nature lover"
+timestamp = 1649499360
+
+print(type(followers))
+print(type(profile_picture))
+print(type(post_ids))
+print(type(bio))
+print(type(timestamp))
+
+# <class 'list'>
+# <class 'str'>
+# <class 'list'>
+# <class 'str'>
+# <class 'int'>
+# %%
+followers = ["john", "jane", "jacob", "jessica", "jenny"]
+profile_picture = "https://example.com/profile.jpg"
+post_ids = [1, 2, 3, 4, 5]
+bio = "Travel enthusiast | Photographer | Nature lover"
+timestamp = 1649499360
+
+# Enter your solution here
+
+cond_a = tuple
+cond_b = str
+cond_c = list
+cond_d = set
+cond_e = float
+
+
+if type(followers) is cond_a:
+    print(True)
+else:
+    print(False)
+
+if type(profile_picture) is cond_b:
+    print(True)
+else:
+    print(False)
+
+if type(post_ids) is cond_c:
+    print(True)
+else:
+    print(False)
+
+if type(bio) is cond_d:
+    print(True)
+else:
+    print(False)
+
+if type(timestamp) is cond_e:
+    print(True)
+else:
+    print(False)
+
+# %%
+followers = ["john", "jane", "jacob", "jessica", "jenny"]
+profile_picture = "https://example.com/profile.jpg"
+post_ids = [1, 2, 3, 4, 5]
+bio = "Travel enthusiast | Photographer | Nature lover"
+timestamp = 1649499360
+
+print(isinstance(followers, tuple))
+print(isinstance(profile_picture, str))
+print(isinstance(post_ids, list))
+print(isinstance(bio, set))
+print(isinstance(timestamp, float))
+
+# %%
+my_text = "python is a popular programming language."
+
+my_text2 = my_text.capitalize()
+
+print(my_text2)
+# %%
+my_text = "python is a popular programming language."
+
+p_in_text = my_text.count("p")
+
+print(f"The character 'p' occurs {p_in_text} times in the text.")
+# %%
+code1 = "FVNISJND-XX-2024"
+code2 = "FVNISJND-XY-2023"
+x = code1[12:16]
+y = code2[12:16]
+
+text1 = "Does code1 end with '2024'? "
+text2 = "Does code2 end with '2024'? "
+
+xy = x == "2024"
+yx = y == "2024"
+
+print(f"{text1}{xy}")
+print(f"{text2}{yx}")
+# %%
+path1 = "youtube.com/watch?v=5EhRztVxums"
+path2 = "google.com/search?q=car"
+
+g = path1.startswith("youtube")
+d = path2.startswith("youtube")
+
+print(f"path1: {g}")
+print(f"path2: {d}")
+# %%
+base = "https://e-smartdata.teachable.com/p/"
+path1 = base + "sciezka-data-scientist-machine-learning-engineer"
+path2 = base + "sciezka-data-scientist-deep-learning-engineer"
+path3 = base + "sciezka-bi-analyst-data-analyst"
+
+print(f"path1: {path1.find('scientist')}")
+print(f"path2: {path2.find('scientist')}")
+print(f"path3: {path3.find('scientist')}")
+# %%
+code1 = "FVNISJND-20"
+code2 = "FVNISJND20"
+
+x = code1.isalnum()
+y = code2.isalnum()
+
+print(f"Is code1 alphanumeric? {x}")
+print(f"Is code2 alphanumeric? {y}")
+# %%
+text = "Google Colab"
+print(text.lower())
+# %%
+text = "Google Colab"
+print(text.upper())
+# %%
+text = "  Google Colab   "
+print(text.strip())
+# %%
+text = "340-23-245-235"
+print(text.replace("-", ""))
+# %%
+text = "Open,High,Low,Close"
+print(text.split(","))
+# %%
+text = """Python is a general purpose language.
+Python is popular."""
+print(text.splitlines())
+# %%
+num = 34
+padded_num = str(num).zfill(6)
+print(padded_num)
+# %%
+url = (
+    "https://e-smartdata.teachable.com/p/sciezka-data-scientist"
+    "-machine-learning-engineer"
+)
+n = url[36:85]
+h = n.replace("-", " ")
+print(h)
+# %%
+url = (
+    "https://e-smartdata.teachable.com/p/sciezka-data-scientist"
+    "-machine-learning-engineer"
+)
+n = url[36:85]
+h = n.replace("-", " ")
+print(h)
+# %%
+seat_assignment = " 24a "
+gate_announcement = "Boarding for flight UA 123 has begun."
+gate_number = "B12"
+cities = ["New York", "Los Angeles", "Chicago"]
+
+clean_seat_assignment = seat_assignment.strip()
+updated_announcement = gate_announcement.replace("Boarding", "Departing")
+uppercase_seat = clean_seat_assignment.upper()
+terminal = gate_number.replace("12", "")
+gate = gate_number.replace("B", "")
+cities_string = ", ".join(cities)
+
+
+print(clean_seat_assignment)
+print(updated_announcement)
+print(uppercase_seat)
+print(terminal)
+print(gate)
+print(cities_string)
+# %%
+seat_map_header = "SEAT MAP"
+row1 = ["A1", "B1", "C1", "D1", "E1", "F1"]
+row2 = ["A2", "B2", "C2", "D2", "E2", "F2"]
+
+row_slash = "-" * 10
+row_slash2 = "-" * 9
+header = row_slash + seat_map_header + row_slash2
+seat_row1 = f"{row1[0]} - {row1[1]} - {row1[2]} | {row1[3]} - {row1[4]} - {row1[5]}"
+seat_row2 = f"{row2[0]} - {row2[1]} - {row2[2]} | {row2[3]} - {row2[4]} - {row2[5]}"
+print(header)
+print(seat_row1)
+print(seat_row2)
+# %%
+seat_map_header = "SEAT MAP"
+row1 = ["A1", "B1", "C1", "D1", "E1", "F1"]
+row2 = ["A2", "B2", "C2", "D2", "E2", "F2"]
+
+row1_string = " - ".join(row1[:3]) + " | " + " - ".join(row1[3:])
+row2_string = " - ".join(row2[:3]) + " | " + " - ".join(row2[3:])
+
+centered_header = seat_map_header.center(27, "-")
+
+print(centered_header)
+print(row1_string)
+print(row2_string)
+# %%
+seat_assignment = "Seat 24A"
+boarding_group = "Group C"
+delay_time = "30 mins"
+baggage_weight = "23 kg"
+
+clean_seat_assignment = seat_assignment[5:8]
+clean_boarding_group = boarding_group[-1]
+clean_delay_time = delay_time[:2]
+clean_baggage_weight = baggage_weight[:2]
+
+print(clean_seat_assignment)
+print(clean_boarding_group)
+print(clean_delay_time)
+print(clean_baggage_weight)
+# %%
+seat_assignment = "Seat 24A"
+boarding_group = "Group C"
+delay_time = "30 mins"
+baggage_weight = "23 kg"
+
+clean_seat_assignment = seat_assignment.removeprefix("Seat ")
+clean_boarding_group = boarding_group.removeprefix("Group ")
+clean_delay_time = delay_time.removesuffix(" mins")
+clean_baggage_weight = baggage_weight.removesuffix(" kg")
+
+print(clean_seat_assignment)
+print(clean_boarding_group)
+print(clean_delay_time)
+print(clean_baggage_weight)
+# %%
+gate_number = "B12"
+flight_number = "123"
+seat_assignment = "24A"
+
+padded_num1 = str(gate_number).zfill(4)
+padded_num2 = str(flight_number).zfill(6)
+padded_num3 = str(seat_assignment).zfill(4)
+print(padded_num1)
+print(padded_num2)
+print(padded_num3)
+# %%
+subjects = {"mathematics", "polish"}
+
+subjects.add("english")
+
+print(subjects)
+# %%
+text = "Programming in python."
+vowels = {"a", "e", "i", "o", "u"}
+
+tex_low = text.lower()
+tex_space = tex_low.replace(" ", "").replace(".", "")
+tex_set = set(tex_space)
+nw_set = tex_set.difference(vowels)
+print(len(nw_set))
+# %%
+text = "Programming in python."
+vowels = {"a", "e", "i", "o", "u"}
+
+tex_low = text.lower()
+tex_space = tex_low.replace(" ", "").replace(".", "")
+tex_set = set(tex_space)
+nw_set = tex_set.difference(vowels)
+print(f"Number of consonants: {len(nw_set)}")
+# %%
+set_A = {2, 4, 6, 8}
+set_B = {4, 10}
+
+print(f"Symmetric difference: {set_A.symmetric_difference(set_B)}")
+# %%
+ad1_ids = {"001", "002", "003"}
+ad2_ids = {"002", "003", "007"}
+
+sim_dif = ad1_ids.symmetric_difference(ad2_ids)
+print(f"Selected IDs: {sim_dif}")
+# %%
+clicked_ids = {"9001", "9002", "9005"}
+bought_ids = {"9002", "9004", "9005"}
+
+id = clicked_ids.intersection(bought_ids)
+print(f"Customer IDs: {id}")
+# %%
+flights = {"AA100", "UA200", "DL300", "WN400"}
+booked_flights = {"AA100", "WN400"}
+available_flights = flights - booked_flights
+# %%
+daily_menu = {
+    "burger",
+    "fries",
+    "hot dog",
+    "chicken sandwich",
+    "pasta with seafood",
+}
+fixed_vegetarian_options = {
+    "fries",
+    "onion rings",
+    "pasta with seafood",
+    "feta salad",
+}
+vegetarian_menu = daily_menu.intersection(fixed_vegetarian_options)
+# %%
+wig20 = ("CDR", "PKO", "PEO")
+mwig40 = ("PLW", "AMC", "BFT")
+
+# Enter your solution here
+w = (wig20, mwig40)
+# %%
+members = (("Kasia", 23), ("Tomek", 19))
+new_members = (members[0], ("Adam", 26), members[1])
+print(new_members)
+# %%
+default_settings = ("YES", "NO", "NO", "YES", "NO")
+x = default_settings.count("YES")
+print(f'Number of occurrences of "YES": {x}')
+# %%
+names = ("Monika", "Tomek", "Adam", "Olaf")
+x = sorted(names)
+print(tuple(x))
+# %%
+info = (("Monika", 19), ("Tomek", 21), ("Adam", 18), ("Jarek", 30))
+
+asc_info = tuple(sorted(info, key=lambda item: item[1]))
+desc_info = tuple(sorted(info, key=lambda item: item[1], reverse=True))
+
+print(f"Ascending: {asc_info}")
+print(f"Descending: {desc_info}")
+# %%
+stocks = [("Playway", ("PLW", 310)), ("CD Projekt", ("CDR", 300))]
+
+print(stocks[0][1][0])
+# %%
+objectives1 = ("Secure the perimeter", "Neutralize enemy targets")
+objectives2 = ("Provide medical assistance", "Evacuate civilians")
+
+coordinates1 = ((35.6895, 139.6917), (34.0537, -118.2424))
+coordinates2 = ((40.7128, -74.0060), (51.5074, -0.1278))
+
+p1 = objectives1 + coordinates1
+p2 = objectives2 + coordinates2
+
+print(f"First mission: {p1}")
+print(f"Second mission: {p2}")
+# %%
+ranks = (
+    "Private",
+    "Corporal",
+    "Sergeant",
+    "Lieutenant",
+    "Captain",
+    "Major",
+    "Colonel",
+)
+num_ranks = len(ranks)
+major_index = ranks.index("Major")
+colonel_present = "Colonel" in ranks
+
+print(num_ranks)
+print(major_index)
+print(colonel_present)
+# %%
