@@ -2,7 +2,7 @@
 from mysql.connector import connect, Error
 
 try:
-    with connect(host="localhost", user="root", password="!IloveOliwer1911") as conn:
+    with connect(host="localhost", user="xxx", password="xxx") as conn:
         print(conn)
 
 except Error as e:
@@ -13,7 +13,7 @@ except Error as e:
 from mysql.connector import connect, Error
 
 try:
-    with connect(host="localhost", user="root", password="!IloveOliwer1911") as conn:
+    with connect(host="localhost", user="xxx", password="xxx") as conn:
         sql_statement = 'CREATE DATABASE test_test'
         with conn.cursor() as cursor:
             cursor.execute(sql_statement)
@@ -30,7 +30,7 @@ from mysql.connector import connect, Error
 
 try:
     with connect(
-        host="localhost", user="root", password="!IloveOliwer1911", database="cinematic"
+        host="localhost", user="root", password="xxx", database="cinematic"
     ) as conn:
         sql_statement = """
         CREATE TABLE if not exists expenses (
@@ -125,7 +125,7 @@ from mysql.connector import connect, Error
 
 try:
     with connect(
-        host="localhost", user="root", password="!IloveOliwer1911", database="cinematic"
+        host="localhost", user="xxx", password="xxx", database="cinematic"
     ) as conn:
         expenses = "SELECT * FROM expenses WHERE cost >= 700;"
 
@@ -141,7 +141,7 @@ from mysql.connector import connect, Error
 
 try:
     with connect(
-        host="localhost", user="root", password="!IloveOliwer1911", database="cinematic"
+        host="localhost", user="root", password="xxx", database="cinematic"
     ) as conn:
         expenses = "SELECT * FROM expenses WHERE cost >= 700;"
 
@@ -157,7 +157,7 @@ from mysql.connector import connect, Error
 
 try:
     with connect(
-        host="localhost", user="root", password="!IloveOliwer1911", database="cinematic"
+        host="localhost", user="root", password="xxx", database="cinematic"
     ) as conn:
         expenses = "SELECT * FROM expenses WHERE cost >= 700;"
 
@@ -175,7 +175,7 @@ from mysql.connector import connect, Error
 
 try:
     with connect(
-        host="localhost", user="root", password="!IloveOliwer1911", database="cinematic"
+        host="localhost", user="xxx", password="xxx", database="cinematic"
     ) as conn:
         drop = "DROP TABLE directors, expenses, movies, persons"
 
@@ -202,7 +202,7 @@ from sqlalchemy import Column, String, Integer, Date, Numeric
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 db = 
-create_engine('mysql+mysqlconnector://root:aJSSBVkmtQQCdetovrmR@localhost:3306
+create_engine('mysql+mysqlconnector://xxx:aJSSBVkmtQQCdetovrmR@localhost:3306
 /cinematic', echo=True)
 # dialect+driver://username:password@host:port/database
 Base = declarative_base()

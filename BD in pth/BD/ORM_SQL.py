@@ -7,9 +7,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
 # Создание движка базы
-db = create_engine(
-    "mysql+mysqlconnector://root:!IloveOliwer1911@localhost:3306/cinematic", echo=True
-)
+db = create_engine("mysql+mysqlconnector://xxx:xxx@localhost:3306/cinematic", echo=True)
 
 # создание фабрики сессий с првязкой к движку
 Base = declarative_base()
