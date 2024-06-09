@@ -29,6 +29,9 @@ class Movie(Base):
     director_id = Column(Integer, ForeignKey("directors.id"))
     director = relationship("Director", backref="directors")
 
+    def __repr__(self):
+        return self.title
+
 
 db = create_engine(
     "mysql+mysqlconnector://root:!IloveOliwer1911@localhost:3306/cinematic", echo=True

@@ -18,6 +18,6 @@ class Examples(Base):
 
 
 db = create_engine(
-    "mysql+mysqlconnector://xxx:!xxx@localhost:3306/cinematic", echo=True
+    "mysql+mysqlconnector://root:!IloveOliwer1911@localhost:3306/cinematic", echo=True
 )
 Base.metadata.create_all(db)
