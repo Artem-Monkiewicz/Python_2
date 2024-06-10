@@ -2,9 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from models2 import Director, Movie
 
-db = create_engine(
-    "mysql+mysqlconnector://root:!IloveOliwer1911@localhost:3306/cinematic", echo=True
-)
+db = create_engine("mysql+mysqlconnector://xxx:xxx@localhost:3306/cinematic", echo=True)
 
 Base = declarative_base()
 Session = sessionmaker(bind=db)

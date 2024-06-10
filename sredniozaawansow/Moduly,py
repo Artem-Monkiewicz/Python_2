@@ -1,0 +1,9 @@
+import string
+import random
+
+# Zadanie 85
+print("Zadanie 85")
+# 1
+print("a")
+length = random.randint(1, 100)
+letters = [string.ascii_letters[random.randint(0,len(string.ascii_letters))] for i in leigth
