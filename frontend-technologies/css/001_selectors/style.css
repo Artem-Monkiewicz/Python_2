@@ -1,0 +1,39 @@
+/* stylowanie wg. nazwy elementu */
+h1{
+    color: red;
+}
+
+/* stylowanie wg. class */
+.paragraph-1{
+    color: green;
+}
+
+/* stylowanie wg. ID */
+#paragraph-2{
+    color: pink;
+}
+
+input:disabled{
+    background-color: red;
+}
+
+input:active{
+    background-color: aliceblue;
+}
+
+button{
+    cursor: pointer;
+    background-color: aqua;
+}
+
+button:hover{
+    background-color: aquamarine;
+}
+
+p{
+    color:gray;
+}
+
+section p{
+    background-color: red;
+}

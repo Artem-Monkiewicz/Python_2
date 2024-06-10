@@ -1,0 +1,39 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        Odwzoruj design z pliku design.png - tym razem możesz dodawać elementy html jeżeli zajdzie taka potrzeba
+    
+    
+        hint: użyj flexboxa
+
+        hint1: użyj property cssowej display justify-content oraz align-items
+
+        hint2: użyj property cssowej display: flex justify-content: space-between; oraz align-items:center; ale żeby uzyskać 
+        oczekiwany efekt musisz owrapować niektóre elemnty w tagi htmlowe tak żeby tworzyły pojedńczy flex-item
+    -->
+    <header>
+      <button class="icon-button">
+        <img src="./assets/list.svg" />
+      </button>
+      <div>
+        <input type="text" class="search-bar" placeholder="Szukaj" />
+        <button class="icon-button">
+          <img src="./assets/microphone.svg" alt="microphone" />
+        </button>
+      </div>
+      <div class="avatar-notification-container">
+        <button class="icon-button">
+          <img src="./assets/bell.svg" alt="notifications" />
+        </button>
+        <img src="./assets/cat.jpg" class="user-thumbnail" />
+      </div>
+    </header>
+  </body>
+</html>

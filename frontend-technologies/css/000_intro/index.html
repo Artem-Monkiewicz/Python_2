@@ -1,0 +1,97 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .cokolwiek {
+        color: blue;
+        letter-spacing: 3px;
+      }
+
+      li {
+        color: pink;
+      }
+
+      li {
+        color: green;
+      }
+
+      .custom-article {
+        background-color: #66b128;
+      }
+    </style>
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <h1>CSS INTRO</h1>
+    <ul>
+      <li>CSS</li>
+      <li>
+        Sposoby na CSS
+        <ul>
+          <li
+            class="cokolwiek"
+            style="color: #66b128; background-color: bisque"
+          >
+            Inline style
+          </li>
+          <li class="cokolwiek">Tag style</li>
+          <li class="cokolwiek">Tag style</li>
+          <li class="cokolwiek plik-zewnetrzny">Plik zewnętrzny</li>
+          <li>Biblioteki CSSowe</li>
+        </ul>
+      </li>
+      <li>CSS działanie - kaskadowość i specyficzność</li>
+    </ul>
+    <br />
+    <main class="container">
+      <article class="custom-article">
+        <form action="">
+          <div>
+            <label>
+              Jak masz na imie?
+              <input
+                type="text"
+                placeholder="Imie (max 20 znaków)"
+                maxlength="20"
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Jak masz na nazwisko?
+              <input
+                type="text"
+                placeholder="Nazwisko (max 20 znaków)"
+                maxlength="20"
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Podaj hasło
+              <input type="password" placeholder="Hasło" />
+            </label>
+          </div>
+          <div>
+            <label>
+              Powtórz hasło
+              <input type="password" placeholder="Powtórz hasło" />
+            </label>
+          </div>
+          <button type="submit">Submit</button>
+          <button type="reset">Reset</button>
+        </form>
+      </article>
+    </main>
+  </body>
+</html>

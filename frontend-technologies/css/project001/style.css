@@ -1,0 +1,81 @@
+/* ### Primary
+
+Dark cyan: hsl(185, 75%, 39%)
+Very dark desaturated blue: hsl(229, 23%, 23%)
+Dark grayish blue: hsl(227, 10%, 46%)
+
+### Neutral
+
+Dark gray: hsl(0, 0%, 59%) */
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  background-color: hsl(185, 75%, 39%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar-container {
+  background: white;
+  padding: 5px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-top: -50px;
+}
+
+.avatar-container img {
+  border-radius: 50%;
+}
+
+.stats {
+  border-top: 1px solid hsla(0, 0%, 59%, 0.403);
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  text-align: center;
+}
+
+.name {
+  font-weight: 500;
+  color: hsl(229, 23%, 23%);
+}
+
+.age {
+  font-weight: 400;
+  color: hsl(0, 0%, 59%);
+}
+
+.country-name {
+  margin-top: -10px;
+  margin-bottom: 50px;
+  color: hsl(0, 0%, 59%);
+}
+
+.stats-value {
+  font-weight: bold;
+}
+
+.stats-label {
+  margin-top: -5px;
+  margin-bottom: 25px;
+  color: hsl(0, 0%, 59%);
+  font-size: 14px;
+}

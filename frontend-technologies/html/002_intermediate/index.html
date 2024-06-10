@@ -1,0 +1,76 @@
+<!-- 
+    Różne rodzaje inputów + różne atrubuty
+
+    date
+    range
+    checkbox
+    radio
+    text
+    number
+    etc
+
+
+    disabled
+    value
+    checked
+    href
+    src
+    selected
+ -->
+
+<!-- 
+    linkowanie na przykładzie dokumentów about oraz profile
+  -->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <a href="./about.html">About</a>
+      <a href="./profile.html">Profile</a>
+    </nav>
+    <br />
+    <input
+      type="text"
+      minlength="5"
+      maxlength="10"
+      placeholder="Enter ypur name"
+    />
+    <br />
+    <input type="number" min="0" max="100" placeholder="Enter age" />
+
+    <br />
+    <label for="cokolwiek">Grecja</label>
+    <input id="cokolwiek" value="Grecja" type="checkbox" name="One" checked />
+
+    <label for="Polska">Polska</label>
+    <input value="Polska" type="checkbox" name="One" />
+
+    <label for="Włochy">Włochy</label>
+    <input value="Włochy" type="checkbox" name="One" />
+
+    <br />
+    <label>
+      selected
+      <input value="selected" type="radio" name="two" />
+    </label>
+    <input value="none" type="radio" name="two" checked />
+    <label>
+      <input value="none" type="radio" name="two" checked />
+    </label>
+
+    <input value="hfh" type="radio" name="two" />
+    <br />
+    <input value="red" type="radio" name="two1" />
+    <input value="white" type="radio" name="two2" />
+    <input value="blue" type="radio" name="two3" />
+
+    <br />
+    <input type="date" />
+  </body>
+</html>

@@ -1,0 +1,28 @@
+body{
+    background-color: gray;
+}
+
+h1{
+    color: black;
+    text-align: center;
+    font-weight: lighter;
+}
+
+.Head{
+    color: red;
+    font-weight:bold;
+    font-size: 20px;
+}
+
+.Block{
+    margin: 100px;
+    }
+
+.list-item_purple{
+    background-color: blueviolet;
+}
+
+.list-item--white{
+    background-color: antiquewhite;
+}
+

@@ -1,0 +1,60 @@
+.typography {
+    /* background-color: red; */
+    /* kod koloru format hexadecymalny 
+    może składać się z kombinacji cyfr od 0-9 oraz liter a,b,c,d,e,f 
+    kod koloru powinien składać się z 3 lub 6 znaków */
+    background: #46c28a;
+    color: #eee;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    letter-spacing: 5px;
+    line-height: 3;
+    text-align: center;
+    /* text-decoration: line-through; */
+    text-decoration: underline;
+    /* border: 10px red solid; */
+    /* border-style: solid;
+    border-color: red;
+    border-width: 10px; */
+    box-shadow: 7px 22px 31px 0px rgb(59, 59, 59);
+  
+    border-radius: 20px;
+    /* margin: all-directions; */
+    /* margin: 50px; */
+  
+    /* KOLEJNOSĆ MA ZNACZENIE */
+    /* margin: top right bottom left; */
+    /* margin: 50px 40px 30px 20px; */
+  
+    /* margin: oś-Y oś-X */
+    /* margin: margines Wertyklany margines horyznatlny */
+    /* margin: 50px 50px; */
+  
+    padding: 30px;
+  
+    width: 500px;
+    /* height: 100px; */
+    margin: 50px auto;
+  
+    /* natura elementu */
+    /* display: inline; */
+    /* display: inline-block; */
+  }
+  
+  button {
+    border: none;
+    border-radius: 15px;
+    padding: 15px 30px;
+    background-color: #46c28a;
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  button:hover {
+    background-color: #1a8454;
+    transform: scale(1.05);
+  }

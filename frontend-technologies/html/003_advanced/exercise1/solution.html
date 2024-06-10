@@ -1,0 +1,72 @@
+<!-- 
+    Zadanie 2.
+    Odtwórz design dostępny w pliku design.png - Twoim zadaniem jest napisanie takiego kodu HTML który da rezultat widoczny na obrazku
+    
+
+    żeby dodać ramki do tabelki dodaj poniższy kod 
+
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
+
+ -->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Todo</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pouczyć się technologi frontendowych</td>
+          <td>
+            <select>
+              <option value="">high</option>
+              <option selected value="">medium</option>
+              <option value="">low</option>
+            </select>
+          </td>
+          <td>
+            <input type="checkbox" name="" id="" checked />
+          </td>
+          <td>
+            <button>&times;</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Pouczyć się technologi backendowych</td>
+          <td>
+            <select>
+              <option selected value="">high</option>
+              <option value="">medium</option>
+              <option value="">low</option>
+            </select>
+          </td>
+          <td>
+            <input type="checkbox" name="" id="" />
+          </td>
+          <td>
+            <button>&times;</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

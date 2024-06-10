@@ -1,0 +1,25 @@
+body {
+  background-color: hsl(185, 75%, 39%);
+}
+
+.card-footer {
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  border-radius: 0 0 20px 20px;
+}
+
+.metric {
+  text-align: center;
+}
+
+.value {
+  font-weight: bold;
+}
+
+.label {
+  letter-spacing: 0.5px;
+  font-size: small;
+  color: #555;
+}

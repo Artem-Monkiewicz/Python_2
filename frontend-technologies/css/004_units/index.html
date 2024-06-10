@@ -1,0 +1,92 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        font-size: 62, 5%;
+        /* 16px (defaultowa wartość) x 62.5% = 10px */
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .container {
+        background-color: aqua;
+        height: 50vh;
+        width: 50%;
+      }
+
+      .inner-div {
+        background-color: red;
+        height: 25vh;
+        width: 25%;
+      }
+
+      p {
+        font-size: 1.6em;
+      }
+
+      div {
+        font-size: 2em;
+      }
+
+      button {
+        font-size: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae,
+      aperiam?
+    </p>
+    <div>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, quis.
+    </div>
+
+    <button>CLICK ME</button>
+
+    <!-- 
+      I tutaj matematyka stety niestety może się troche przydać ALE z drugiej strony bez przesady :) 
+
+      Jednostki wykorzystywane w CSS: 
+      
+      px
+      %
+   
+      vh
+      vw
+
+      rem
+      em
+
+     -->
+
+    <div class="container">
+      <div class="inner-div"></div>
+    </div>
+
+    <!-- 
+      Fizyczny piksel to najmniejszy element wizualny wyświetlany na ekranie, 
+      który jest podstawową jednostką budulcową ekranu. 
+      Jest to fizyczna jednostka miary, która jest zależna od rozmiaru ekranu i jego rozdzielczości, 
+      a mierzona jest w jednostkach takich jak milimetry lub cale.
+
+      Pixel CSS, z drugiej strony, to jednostka miary stosowana w projektowaniu stron internetowych, 
+      która jest niezależna od fizycznych właściwości ekranu. 
+      Jeden piksel CSS odpowiada jednemu pikselowi na ekranie o standardowej rozdzielczości 96 pikseli na cal (ppi).
+
+      Istnieje wiele różnych rozdzielczości ekranów, co oznacza, że ​​fizyczny 
+      piksel może mieć różną wielkość w zależności od urządzenia, na którym jest wyświetlany. 
+      Piksele CSS są natomiast zawsze takie same rozmiary, niezależnie od urządzenia.
+
+      Piksele CSS pozwalają na stosowanie względnych jednostek takich jak procenty, em, rem, co 
+      pozwala na zapewnienie, że ​​projekt strony internetowej będzie wyglądał podobnie na różnych urządzeniach, 
+      niezależnie od ich rozdzielczości fizycznej.
+      -->
+  </body>
+</html>

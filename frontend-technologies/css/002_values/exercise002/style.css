@@ -1,0 +1,27 @@
+/* Cechy wspólne */
+.btn{
+    padding: 8px 18px;
+    color: white;
+    background-color: blue;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.btn--submit{
+    background-color: green;
+}
+
+.btn--edit{
+    background-color: blue;
+    display: block;
+    width: 100%;
+}
+
+.btn--reset{
+    background-color: red;
+}
+
+.btn--block{
+
+}

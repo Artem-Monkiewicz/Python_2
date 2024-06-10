@@ -1,0 +1,46 @@
+body {
+  background-color: #eee;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: orange;
+  font-size: 50px;
+}
+
+img {
+  width: 30%;
+}
+
+.product-container {
+  padding: 30px;
+  margin: 50px auto;
+  background-color: bisque;
+  border-radius: 10px;
+  width: 50vw;
+}
+
+.product-title {
+  color: rgb(165, 96, 12);
+}
+
+.product-description {
+  color: #333;
+}
+
+.product-price {
+  color: rgb(111, 62, 3);
+  font-size: 30px;
+  line-height: 2;
+}
+
+.add-to-cart-btn {
+  padding: 10px 30px;
+  font-size: 20px;
+  color: white;
+  background: rgb(199, 116, 14);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
